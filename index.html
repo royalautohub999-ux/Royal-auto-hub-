@@ -7,19 +7,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .hidden { display: none; }
-        #carModal { background-color: rgba(0,0,0,0.7); }
-
-        /* Custom Gold Color */
+        /* CSS STYLES */
+        .hidden { display: none !important; }
+        
+        /* Gold Text Effect */
         .text-gold {
             color: #FFD700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Shadow for 3D effect */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
         
-        /* News Bar Animation */
+        /* News Bar Scrolling */
         .news-bar {
-            background-color: #FFD700; /* Gold Background */
-            color: #000; /* Black Text */
+            background-color: #FFD700;
+            color: #000;
             padding: 8px 0;
             font-weight: bold;
             overflow: hidden;
@@ -35,41 +35,50 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-100%); }
         }
+
+        /* Section Animation */
+        .content-section {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans pb-24">
 
     <header class="bg-blue-900 p-6 shadow-xl text-center relative border-b-4 border-yellow-500 rounded-b-2xl">
-        <img src="https://i.ibb.co/9k3bhYjr/1000138115-removebg-preview.png" class="h-24 mx-auto mb-2 drop-shadow-lg" alt="Royal Auto Hub Logo">
+        <img src="https://i.ibb.co/9k3bhYjr/1000138115-removebg-preview.png" class="h-24 mx-auto mb-2 drop-shadow-lg" alt="Logo">
         <h1 class="text-3xl font-extrabold text-gold tracking-wider uppercase font-serif">ROYAL AUTO HUB</h1>
         <p class="text-sm italic font-light text-gray-100 tracking-wide mt-1">Quality you can trust</p>
     </header>
 
     <div class="news-bar shadow-md">
         <div class="news-text">
-            <a href="https://wa.me/+917047174035" style="text-decoration: none; color: black;">📢 Latest News: New Stock Arriving Soon! Click to Inquiry</a> &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="https://wa.me/+917047174035" style="text-decoration: none; color: black;">🔥 Coming Soon: Premium Ceramic Coating Services</a> &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="https://wa.me/+917047174035" style="text-decoration: none; color: black;">🚗 Get 20% Off on First Service - Book via WhatsApp</a>
+            📢 New Stock: Hyundai Verna Available! &nbsp;&nbsp;|&nbsp;&nbsp; 
+            🔥 Bolero & Celerio at Best Prices &nbsp;&nbsp;|&nbsp;&nbsp; 
+            🚗 Call 7047174035 for Inquiry
         </div>
     </div>
 
-    <nav class="flex justify-around bg-white p-3 mt-0 shadow-sm border-b sticky top-0 z-40">
-        <div onclick="showSection('home')" class="cursor-pointer text-center hover:text-yellow-600 transition">
-            <img src="https://cdn-icons-png.flaticon.com/512/1946/1946436.png" class="w-7 mx-auto" alt="Home">
-            <p class="text-[10px] font-bold mt-1 uppercase">Home</p>
-        </div>
-        <div onclick="showSection('buy-car')" class="cursor-pointer text-center hover:text-yellow-600 transition">
-            <img src="https://cdn-icons-png.flaticon.com/512/743/743131.png" class="w-7 mx-auto" alt="Buy Car">
-            <p class="text-[10px] font-bold mt-1 uppercase">Buy car</p>
-        </div>
-        <div onclick="showSection('loans')" class="cursor-pointer text-center hover:text-yellow-600 transition">
-            <img src="https://cdn-icons-png.flaticon.com/512/2845/2845811.png" class="w-7 mx-auto" alt="Loans">
-            <p class="text-[10px] font-bold mt-1 uppercase">Loans</p>
-        </div>
-        <a href="https://webportal.fibe.in/check-credit-score-free" target="_blank" class="text-center hover:text-yellow-600 transition">
-            <img src="https://cdn-icons-png.flaticon.com/512/3133/3133160.png" class="w-7 mx-auto" alt="Credit Score">
-            <p class="text-[10px] font-bold text-black mt-1 uppercase">Score</p>
-        </a>
+    <nav class="flex justify-around bg-white p-2 shadow-md border-b sticky top-0 z-40">
+        <button onclick="showSection('home')" class="flex flex-col items-center p-2 focus:outline-none hover:text-yellow-600 transition">
+            <i class="fas fa-home text-xl text-blue-900"></i>
+            <span class="text-[10px] font-bold mt-1 uppercase">Home</span>
+        </button>
+        <button onclick="showSection('buy-car')" class="flex flex-col items-center p-2 focus:outline-none hover:text-yellow-600 transition">
+            <i class="fas fa-car text-xl text-blue-900"></i>
+            <span class="text-[10px] font-bold mt-1 uppercase">Buy</span>
+        </button>
+        <button onclick="showSection('loans')" class="flex flex-col items-center p-2 focus:outline-none hover:text-yellow-600 transition">
+            <i class="fas fa-percent text-xl text-blue-900"></i>
+            <span class="text-[10px] font-bold mt-1 uppercase">Loans</span>
+        </button>
+        <button onclick="showSection('reviews')" class="flex flex-col items-center p-2 focus:outline-none hover:text-yellow-600 transition">
+            <i class="fas fa-star text-xl text-blue-900"></i>
+            <span class="text-[10px] font-bold mt-1 uppercase">Reviews</span>
+        </button>
     </nav>
 
     <main class="p-4">
@@ -77,176 +86,181 @@
         <section id="home" class="content-section">
             <div class="bg-gradient-to-b from-blue-900 to-blue-800 p-6 rounded-xl text-center shadow-2xl mb-6 border-t-4 border-yellow-500">
                 <h2 class="text-2xl font-bold mb-2 text-white">Welcome to <span class="text-yellow-400">Royal Auto Hub</span></h2>
-                <p class="text-blue-100 text-xs mb-4">India's most trusted used car dealership.</p>
-                <img src="https://i.ibb.co/jvkT8Mzx/1768181498879.png" class="mx-auto rounded-lg shadow-lg border border-yellow-500 mb-5 w-full object-cover" alt="Showroom">
-                <button onclick="showSection('buy-car')" class="bg-yellow-500 text-blue-900 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-yellow-400 transition transform hover:scale-105 active:scale-95 w-full">
-                    View Available Cars
-                </button>
+                <img src="https://i.ibb.co/jvkT8Mzx/1768181498879.png" class="mx-auto rounded-lg shadow-lg border border-yellow-500 mb-5 w-full object-cover" alt="Banner">
+                <button onclick="showSection('buy-car')" class="bg-yellow-500 text-blue-900 px-8 py-3 rounded-full font-bold shadow-lg w-full">View All Cars</button>
             </div>
 
             <div class="bg-white p-5 rounded-xl shadow-lg border border-gray-200 relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-900 to-yellow-500"></div>
                 <div class="flex items-center gap-2 mb-4 border-b pb-2">
                     <i class="fas fa-calculator text-blue-900 text-xl"></i>
-                    <h2 class="text-lg font-bold text-gray-800">Check Your EMI</h2>
+                    <h2 class="text-lg font-bold text-gray-800">EMI Calculator</h2>
                 </div>
                 <div class="space-y-4">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-500 mb-1">Loan Amount (₹)</label>
-                        <input type="number" id="loanAmount" placeholder="e.g. 300000" class="w-full p-3 bg-blue-50 border border-blue-100 rounded focus:outline-none focus:ring-2 focus:ring-blue-600 font-bold text-gray-700">
+                    <input type="number" id="loanAmount" placeholder="Loan Amount (e.g. 300000)" class="w-full p-3 bg-gray-50 border rounded font-bold">
+                    <div class="flex gap-2">
+                        <input type="number" id="interestRate" placeholder="Rate %" class="w-1/2 p-3 bg-gray-50 border rounded">
+                        <input type="number" id="loanTerm" placeholder="Years" class="w-1/2 p-3 bg-gray-50 border rounded">
                     </div>
-                    <div class="flex gap-3">
-                        <div class="w-1/2">
-                            <label class="block text-xs font-bold text-gray-500 mb-1">Interest Rate (%)</label>
-                            <input type="number" id="interestRate" placeholder="e.g. 10" class="w-full p-3 bg-blue-50 border border-blue-100 rounded focus:outline-none focus:ring-2 focus:ring-blue-600 text-center">
-                        </div>
-                        <div class="w-1/2">
-                            <label class="block text-xs font-bold text-gray-500 mb-1">Tenure (Years)</label>
-                            <input type="number" id="loanTerm" placeholder="e.g. 5" class="w-full p-3 bg-blue-50 border border-blue-100 rounded focus:outline-none focus:ring-2 focus:ring-blue-600 text-center">
-                        </div>
-                    </div>
-                    <button onclick="calculateEMI()" class="w-full bg-blue-900 text-white font-bold py-3 rounded-lg shadow-md hover:bg-blue-800 transition transform active:scale-95">
-                        Calculate Now
-                    </button>
+                    <button onclick="calculateEMI()" class="w-full bg-blue-900 text-white font-bold py-3 rounded-lg shadow-md">Calculate EMI</button>
                 </div>
-                <div id="emiResultBox" class="hidden mt-6 bg-yellow-50 p-4 rounded-lg border border-yellow-200 text-center animate-pulse">
-                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wide">Monthly EMI</p>
-                    <p class="text-3xl font-extrabold text-blue-900 my-1" id="monthlyEMI">₹ 0</p>
-                    <div class="mt-2 pt-2 border-t border-yellow-200 flex justify-between text-xs text-gray-600">
-                        <span>Total Interest:</span>
-                        <span id="totalInterest" class="font-bold">₹ 0</span>
-                    </div>
+                <div id="emiResultBox" class="hidden mt-4 bg-yellow-50 p-4 rounded text-center border border-yellow-200">
+                    <p class="text-xs font-bold text-gray-500">Monthly EMI</p>
+                    <p class="text-2xl font-extrabold text-blue-900" id="monthlyEMI">₹ 0</p>
                 </div>
             </div>
         </section>
 
         <section id="buy-car" class="content-section hidden">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-lg font-bold text-blue-900">Available Stock</h2>
-                <span class="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded">3 Vehicles</span>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-3">
-                <div class="bg-white p-2 rounded-lg shadow-md border border-gray-100 relative hover:shadow-xl transition col-span-2">
-                    <span class="absolute top-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded animate-pulse">NEW ARRIVAL</span>
-                    <img src="https://i.ibb.co/p6Pyg3ML/IMG-20260211-WA0002.jpg" class="rounded w-full h-40 object-cover" alt="Verna CRDI SX">
-                    <h3 class="font-bold text-base mt-2 text-gray-800">Hyundai Verna CRDi SX</h3>
-                    <p class="text-xs text-gray-500">Diesel | 2013 | Euro 4</p>
-                    <p class="text-lg font-bold text-blue-900 mt-1">Call for Price</p>
-                    <button onclick="openCarModal('Hyundai Verna CRDi SX', 'Diesel', '2013', 'West Bengal', 'Euro 4', 'Call for Price')" class="mt-2 bg-yellow-500 text-white w-full py-2 text-sm rounded font-bold hover:bg-yellow-600">View Details</button>
+            <h2 class="text-lg font-bold text-blue-900 mb-4 border-l-4 border-yellow-500 pl-2">Available Cars</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <div class="bg-white p-3 rounded-xl shadow-lg border border-gray-100 relative">
+                    <span class="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded animate-pulse z-10">NEW ARRIVAL</span>
+                    <img src="https://i.ibb.co/p6Pyg3ML/IMG-20260211-WA0002.jpg" class="rounded-lg w-full h-48 object-cover mb-3" alt="Verna">
+                    <h3 class="font-bold text-lg text-gray-800">Hyundai Verna CRDi SX</h3>
+                    <p class="text-xs text-gray-500 mb-2">Diesel | 2013 | WB Reg | Euro 4</p>
+                    <button onclick="openCarModal('Hyundai Verna CRDi SX', 'Diesel', '2013', 'West Bengal', 'Euro 4', 'Call for Price')" class="w-full bg-blue-900 text-white py-2 rounded-lg font-bold">View Details</button>
                 </div>
 
-                <div class="bg-white p-2 rounded-lg shadow-md border border-gray-100 relative hover:shadow-xl transition">
-                    <img src="https://i.ibb.co/zVwJVzWT/Screenshot-2026-01-29-08-58-21-853-com-facebook-katana.jpg" class="rounded w-full h-28 object-cover" alt="Mahindra Bolero">
-                    <h3 class="font-bold text-sm mt-2 text-gray-800">2019 Mahindra Bolero</h3>
-                    <p class="text-[10px] text-gray-500">Diesel | 74,374 km</p>
-                    <p class="text-sm font-bold text-blue-900 mt-1">₹ 6.10 Lakh</p>
-                    <button onclick="openCarModal('2019 Bolero', '74,374 km', 'Diesel', '2nd Owner', 'HR-26', '₹ 6.10 Lakh')" class="mt-2 bg-yellow-500 text-white w-full py-1 text-xs rounded font-bold hover:bg-yellow-600">View Details</button>
+                <div class="bg-white p-3 rounded-xl shadow-lg border border-gray-100">
+                    <img src="https://i.ibb.co/zVwJVzWT/Screenshot-2026-01-29-08-58-21-853-com-facebook-katana.jpg" class="rounded-lg w-full h-48 object-cover mb-3" alt="Bolero">
+                    <h3 class="font-bold text-lg text-gray-800">2019 Mahindra Bolero</h3>
+                    <p class="text-xs text-gray-500 mb-2">Diesel | 74,374 KM | 2nd Owner</p>
+                    <button onclick="openCarModal('2019 Mahindra Bolero', '74,374 KM', 'Diesel', '2nd Owner', 'HR-26', '₹ 5.10 Lakh')" class="w-full bg-blue-900 text-white py-2 rounded-lg font-bold">View Details</button>
                 </div>
-                
-                <div class="bg-white p-2 rounded-lg shadow-md border border-gray-100 relative hover:shadow-xl transition">
-                    <img src="https://stimg.cardekho.com/images/carexteriorimages/630x420/Maruti/Swift/10406/1715243160273/front-left-side-47.jpg" class="rounded w-full h-28 object-cover" alt="Car">
-                    <h3 class="font-bold text-sm mt-2 text-gray-800">2021 CELERIO</h3>
-                    <p class="text-[10px] text-gray-500">Petrol | 32,000 km</p>
-                    <p class="text-sm font-bold text-blue-900 mt-1">₹ 3.00 Lakh</p>
-                    <button onclick="openCarModal('2021 CELERIO', '32,000 km', 'Petrol', '1st Owner', 'BS-VI', '₹ 3.00 Lakh')" class="mt-2 bg-yellow-500 text-white w-full py-1 text-xs rounded font-bold hover:bg-yellow-600">View Details</button>
+
+                <div class="bg-white p-3 rounded-xl shadow-lg border border-gray-100">
+                    <img src="https://stimg.cardekho.com/images/carexteriorimages/630x420/Maruti/Swift/10406/1715243160273/front-left-side-47.jpg" class="rounded-lg w-full h-48 object-cover mb-3" alt="Celerio">
+                    <h3 class="font-bold text-lg text-gray-800">2021 Maruti Celerio</h3>
+                    <p class="text-xs text-gray-500 mb-2">Petrol | 32,000 KM | 1st Owner</p>
+                    <button onclick="openCarModal('2021 Maruti Celerio', '32,000 KM', 'Petrol', '1st Owner', 'BS-VI', '₹ 3.00 Lakh')" class="w-full bg-blue-900 text-white py-2 rounded-lg font-bold">View Details</button>
                 </div>
+
             </div>
         </section>
 
         <section id="loans" class="content-section hidden">
-            <h2 class="text-lg font-bold mb-3 text-blue-900">Finance Partners</h2>
-            <div class="space-y-3 mb-8">
-                <div class="p-4 bg-white border-l-4 border-yellow-500 shadow-md flex justify-between items-center rounded-r-lg">
-                    <div><h3 class="font-bold text-sm text-gray-800">HDFC Bank Finance</h3><p class="text-xs text-gray-500">Instant Approval</p></div>
-                    <button onclick="makeCall('+917047174035')" class="bg-green-600 text-white px-4 py-2 rounded-full text-xs font-bold shadow hover:bg-green-700"><i class="fas fa-phone-alt mr-1"></i> Call</button>
+            <h2 class="text-lg font-bold text-blue-900 mb-4">Finance Partners</h2>
+            <div class="bg-white p-4 rounded-xl shadow-md border-l-4 border-yellow-500 mb-3 flex justify-between items-center">
+                <div><h3 class="font-bold text-gray-800">HDFC Bank</h3><p class="text-xs text-gray-500">Fast Approval</p></div>
+                <button onclick="makeCall('+917047174035')" class="bg-green-600 text-white px-4 py-2 rounded-full font-bold text-sm">Call</button>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-md border-l-4 border-blue-900 flex justify-between items-center">
+                <div><h3 class="font-bold text-gray-800">SBI Loan</h3><p class="text-xs text-gray-500">Low Interest</p></div>
+                <button onclick="makeCall('+917047174035')" class="bg-green-600 text-white px-4 py-2 rounded-full font-bold text-sm">Call</button>
+            </div>
+        </section>
+
+        <section id="reviews" class="content-section hidden">
+            <h2 class="text-lg font-bold text-blue-900 mb-4">Customer Reviews</h2>
+            <div class="bg-white p-4 rounded-xl shadow-lg mb-6">
+                <input type="text" id="reviewName" placeholder="Your Name" class="w-full p-2 bg-gray-50 border rounded mb-2">
+                <div class="flex gap-2 mb-2" id="starContainer">
+                    <i class="far fa-star text-2xl text-yellow-500 cursor-pointer" onclick="setRating(1)"></i>
+                    <i class="far fa-star text-2xl text-yellow-500 cursor-pointer" onclick="setRating(2)"></i>
+                    <i class="far fa-star text-2xl text-yellow-500 cursor-pointer" onclick="setRating(3)"></i>
+                    <i class="far fa-star text-2xl text-yellow-500 cursor-pointer" onclick="setRating(4)"></i>
+                    <i class="far fa-star text-2xl text-yellow-500 cursor-pointer" onclick="setRating(5)"></i>
                 </div>
-                <div class="p-4 bg-white border-l-4 border-blue-900 shadow-md flex justify-between items-center rounded-r-lg">
-                    <div><h3 class="font-bold text-sm text-gray-800">SBI Car Loan</h3><p class="text-xs text-gray-500">Low Interest Rates</p></div>
-                    <button onclick="makeCall('+917047174035')" class="bg-green-600 text-white px-4 py-2 rounded-full text-xs font-bold shadow hover:bg-green-700"><i class="fas fa-phone-alt mr-1"></i> Call</button>
+                <textarea id="reviewComment" placeholder="Write review..." class="w-full p-2 bg-gray-50 border rounded mb-2 h-20"></textarea>
+                <button onclick="submitReview()" class="w-full bg-blue-900 text-white py-2 rounded font-bold">Submit Review</button>
+            </div>
+            <div id="reviewList" class="space-y-3">
+                <div class="bg-white p-3 rounded shadow-sm border">
+                    <p class="font-bold text-sm">Rahul Roy <span class="text-yellow-500">★★★★★</span></p>
+                    <p class="text-xs text-gray-600">Great service! Trusted dealer.</p>
                 </div>
             </div>
         </section>
+
     </main>
 
-    <footer class="mt-10 p-6 bg-white border-t pb-24">
-        <div class="max-w-md mx-auto text-center">
-            <h2 class="text-lg font-bold"><span class="text-blue-900">ROYAL</span> <span class="text-yellow-500">AUTO HUB</span></h2>
-            <p class="text-xs font-semibold text-gray-500 mt-1">Nahar khal nearby kali Mata Mandir (Jhargram)</p>
-            <div class="mt-4 flex justify-center space-x-5">
-                <a href="https://wa.me/917489331553" class="text-green-500 text-2xl hover:scale-125 transition"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" class="text-blue-600 text-2xl hover:scale-125 transition"><i class="fab fa-facebook"></i></a>
-            </div>
+    <footer class="mt-10 p-6 bg-white border-t pb-24 text-center">
+        <h2 class="text-lg font-bold text-blue-900">ROYAL AUTO HUB</h2>
+        <div class="mt-4 flex justify-center space-x-6">
+            <a href="https://wa.me/917489331553" class="text-green-500 text-3xl"><i class="fab fa-whatsapp"></i></a>
+            <a href="tel:+917047174035" class="text-blue-600 text-3xl"><i class="fas fa-phone-square"></i></a>
         </div>
     </footer>
 
-    <div id="carModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm bg-black/50">
-        <div class="bg-white rounded-xl shadow-2xl w-full max-w-sm overflow-hidden transform transition-all scale-100">
+    <div id="carModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-sm overflow-hidden">
             <div class="bg-blue-900 p-4 text-white flex justify-between items-center">
-                <h2 class="font-bold text-lg">Vehicle Details</h2>
-                <button onclick="closeModal()" class="text-2xl font-bold leading-none hover:text-red-400">&times;</button>
+                <h2 class="font-bold text-lg">Details</h2>
+                <button onclick="closeModal()" class="text-2xl font-bold">&times;</button>
             </div>
-            <div class="p-6 text-center">
-                <h3 id="detName" class="text-xl font-bold border-b pb-2 mb-4 text-gray-800"></h3>
-                <div id="detList" class="space-y-3 text-sm text-gray-600 text-left bg-gray-50 p-4 rounded-lg border"></div>
-                <button onclick="makeCall('+917047174035')" class="mt-6 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-bold uppercase shadow-lg flex justify-center items-center gap-2 transition">
-                    <i class="fas fa-phone-alt"></i> Call for Booking
-                </button>
+            <div class="p-6">
+                <h3 id="detName" class="text-xl font-bold text-blue-900 mb-4 border-b pb-2"></h3>
+                <div id="detList" class="space-y-2 text-sm text-gray-700"></div>
+                <button onclick="makeCall('+917047174035')" class="mt-6 w-full bg-green-600 text-white py-3 rounded-lg font-bold">CALL NOW</button>
             </div>
         </div>
     </div>
 
     <script>
-        function showSection(sectionId) {
-            document.querySelectorAll('.content-section').forEach(s => s.classList.add('hidden'));
-            document.getElementById(sectionId).classList.remove('hidden');
+        // 1. Navigation
+        function showSection(id) {
+            document.querySelectorAll('.content-section').forEach(el => el.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
             window.scrollTo(0, 0);
         }
 
-        function makeCall(number) {
-            window.location.href = 'tel:' + number;
-        }
-
-        function openCarModal(name, km, fuel, owner, reg, price) {
+        // 2. Modal
+        function openCarModal(name, d1, d2, d3, d4, price) {
             document.getElementById('detName').innerText = name;
             document.getElementById('detList').innerHTML = `
-                <div class="flex justify-between border-b border-dashed border-gray-300 pb-2"><span>Price:</span><span class="font-bold text-blue-600 text-lg">${price}</span></div>
-                <div class="flex justify-between border-b border-dashed border-gray-300 pb-2 pt-2"><span>Details:</span><span class="font-bold text-gray-800">${km}</span></div>
-                <div class="flex justify-between border-b border-dashed border-gray-300 pb-2 pt-2"><span>Fuel:</span><span class="font-bold text-gray-800">${fuel}</span></div>
-                <div class="flex justify-between border-b border-dashed border-gray-300 pb-2 pt-2"><span>Reg Date:</span><span class="font-bold text-gray-800">${owner}</span></div>
-                <div class="flex justify-between pt-2"><span>Norms:</span><span class="font-bold text-gray-800">${reg}</span></div>
+                <div class="flex justify-between border-b py-2"><span>Price:</span><span class="font-bold text-blue-600 text-lg">${price}</span></div>
+                <div class="flex justify-between border-b py-2"><span>Info:</span><span>${d1}</span></div>
+                <div class="flex justify-between border-b py-2"><span>Detail:</span><span>${d2}</span></div>
+                <div class="flex justify-between border-b py-2"><span>Loc:</span><span>${d3}</span></div>
+                <div class="flex justify-between py-2"><span>Norms:</span><span>${d4}</span></div>
             `;
             document.getElementById('carModal').classList.remove('hidden');
         }
+        function closeModal() { document.getElementById('carModal').classList.add('hidden'); }
+        function makeCall(n) { window.location.href = 'tel:' + n; }
 
-        function closeModal() {
-            document.getElementById('carModal').classList.add('hidden');
+        // 3. EMI Calc
+        function calculateEMI() {
+            const P = document.getElementById('loanAmount').value;
+            const R = document.getElementById('interestRate').value;
+            const N = document.getElementById('loanTerm').value;
+            if(!P || !R || !N) { alert("Please fill all fields"); return; }
+            
+            const r = R / 12 / 100;
+            const n = N * 12;
+            const emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+            
+            document.getElementById('monthlyEMI').innerText = "₹ " + Math.round(emi).toLocaleString();
+            document.getElementById('emiResultBox').classList.remove('hidden');
         }
 
-        function calculateEMI() {
-            let amount = parseFloat(document.getElementById('loanAmount').value);
-            let rate = parseFloat(document.getElementById('interestRate').value);
-            let years = parseFloat(document.getElementById('loanTerm').value);
-
-            if (!amount || !rate || !years) {
-                alert("Please enter Loan Amount, Interest Rate, and Tenure.");
-                return;
+        // 4. Reviews
+        let rating = 0;
+        function setRating(n) {
+            rating = n;
+            const stars = document.getElementById('starContainer').children;
+            for(let i=0; i<5; i++) {
+                stars[i].className = i < n ? "fas fa-star text-2xl text-yellow-500 cursor-pointer" : "far fa-star text-2xl text-yellow-500 cursor-pointer";
             }
-
-            let monthlyRate = rate / 12 / 100;
-            let months = years * 12;
-            let emi = (amount * monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
-            let totalPay = emi * months;
-            let totalInt = totalPay - amount;
-
-            document.getElementById('monthlyEMI').innerText = "₹ " + Math.round(emi).toLocaleString('en-IN');
-            document.getElementById('totalInterest').innerText = "₹ " + Math.round(totalInt).toLocaleString('en-IN');
+        }
+        function submitReview() {
+            const name = document.getElementById('reviewName').value;
+            const text = document.getElementById('reviewComment').value;
+            if(!name || !text || rating === 0) { alert("Please fill details & rate stars"); return; }
             
-            let resultBox = document.getElementById('emiResultBox');
-            resultBox.classList.remove('hidden');
-            resultBox.classList.remove('animate-pulse');
+            const reviewHTML = `
+                <div class="bg-white p-3 rounded shadow-sm border animate-pulse">
+                    <p class="font-bold text-sm">${name} <span class="text-yellow-500">${'★'.repeat(rating)}</span></p>
+                    <p class="text-xs text-gray-600">${text}</p>
+                </div>
+            `;
+            document.getElementById('reviewList').insertAdjacentHTML('afterbegin', reviewHTML);
+            document.getElementById('reviewName').value = '';
+            document.getElementById('reviewComment').value = '';
+            setRating(0);
         }
     </script>
 </body>
-    </html>
-    
+</html>
