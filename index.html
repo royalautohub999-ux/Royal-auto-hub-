@@ -28,9 +28,16 @@
 </head>
 <body class="bg-gray-50 font-sans pb-24 overflow-x-hidden">
 
-    <a href="https://wa.me/919800382378?text=Hi%20Royal%20Auto%20Hub!" target="_blank" class="fixed bottom-24 right-4 bg-green-500 text-white w-14 h-14 rounded-full shadow-2xl z-40 flex items-center justify-center border-2 border-white float-wa">
-        <i class="fab fa-whatsapp text-3xl"></i>
-    </a>
+        <div class="fixed bottom-24 right-4 flex flex-col gap-3 z-40">
+        <a href="tel:+919800382378" class="bg-blue-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center border-2 border-white">
+            <i class="fas fa-phone-alt text-2xl"></i>
+        </a>
+        
+        <a href="https://wa.me/919800382378?text=Hi%20Royal%20Auto%20Hub!" target="_blank" class="bg-green-500 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center border-2 border-white float-wa">
+            <i class="fab fa-whatsapp text-3xl"></i>
+        </a>
+    </div>
+
 
     <div id="sidebarOverlay" class="fixed inset-0 bg-black/60 z-[60] hidden backdrop-blur-sm" onclick="window.closeSidebar()"></div>
 
@@ -162,6 +169,51 @@
                 </div>
             </div>
         </section>
+<section id="blog" class="content-section hidden">
+    <h2 class="text-lg font-bold text-blue-900 mb-4 border-l-4 border-yellow-500 pl-2">Royal Auto Blog</h2>
+    
+    <div class="space-y-6 pb-10">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+            <img src="https://i.ibb.co/mVLMYkfw/1.jpg" class="w-full h-48 object-cover" alt="Used Car Tips">
+            <div class="p-4">
+                <h3 class="font-bold text-blue-900 text-lg">Purani Gaadi Kharidte Waqt Rakhein In Baato Ka Dhyan</h3>
+                <p class="text-sm text-gray-600 mt-2 italic">Jhargram mein best quality used cars ke liye Royal Auto Hub hamesha aapke saath hai.</p>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+            <img src="https://i.ibb.co/HL7K0LSh/2.jpg" class="w-full h-48 object-cover" alt="Car Maintenance">
+            <div class="p-4">
+                <h3 class="font-bold text-blue-900 text-lg">Car Ki Life Kaise Badhayein?</h3>
+                <p class="text-sm text-gray-600 mt-2">Regular service aur sahi maintenance se aapki car hamesha nayi jaisi chalti hai.</p>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+            <img src="https://i.ibb.co/mCm1vZzG/3.jpg" class="w-full h-48 object-cover" alt="Bolero Special">
+            <div class="p-4">
+                <h3 class="font-bold text-blue-900 text-lg">Mahindra Bolero: Har Raaste Ka Raja</h3>
+                <p class="text-sm text-gray-600 mt-2">Humare showroom par Bolero ka behtareen collection available hai.</p>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+            <img src="https://i.ibb.co/DPnGx8kh/4.jpg" class="w-full h-48 object-cover" alt="Our Showroom">
+            <div class="p-4">
+                <h3 class="font-bold text-blue-900 text-lg">Royal Auto Hub: Bharosa aur Quality</h3>
+                <p class="text-sm text-gray-600 mt-2">Hum dete hain har gaadi par 100% paper verification ki guarantee.</p>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+            <img src="https://i.ibb.co/CKFPR7Yh/5.jpg" class="w-full h-48 object-cover" alt="Happy Customers">
+            <div class="p-4">
+                <h3 class="font-bold text-blue-900 text-lg">Humaare Khush Customer</h3>
+                <p class="text-sm text-gray-600 mt-2">Jhargram ke sekdo logo ne hum par bharosa jataya hai.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
         <section id="exchange" class="content-section hidden">
             <h2 class="text-lg font-bold text-blue-900 mb-4 border-l-4 border-yellow-500 pl-2">Exchange Car</h2>
@@ -267,16 +319,65 @@
         };
         window.closeModal = function() { document.getElementById('carModal').classList.add('hidden'); };
         window.makeCall = function(n) { window.location.href = 'tel:' + n; };
+window.sendToWhatsApp = function(type) {
+    let name, detail;
+    if(type === 'Sell') {
+        name = document.getElementById('sellerName').value;
+        detail = document.getElementById('carModel').value;
+    } else {
+        name = document.getElementById('oldCarExchange').value;
+        detail = "Interested in: " + document.getElementById('newCarInterest').value;
+    }
+    if(!name || !detail) { alert("Please fill details!"); return; }
+    let msg = `*Royal Auto Hub Inquiry*%0A*Type:* ${type}%0A*Name:* ${name}%0A*Details:* ${detail}`;
+    window.open(`https://wa.me/919800382378?text=${msg}`, '_blank');
+};
     </script>
 
-    <script type="module">
-        // (FIREBASE CONFIG FOR REVIEWS & AUTH REMAINS THE SAME)
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, onSnapshot, orderBy, query } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-        const firebaseConfig = { apiKey: "AIzaSyBeHGuUBPzvPf6DoROXTg2tpKx4q5vEcgc", authDomain: "royal-auto-hub.firebaseapp.com", projectId: "royal-auto-hub", appId: "1:663210431274:web:6ba6abb2457782e7a1c453" };
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        // ... (Remaining Logic for Reviews)
-    </script>
-</body>
-</html>
+    <<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, onSnapshot, orderBy, query, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    const firebaseConfig = { 
+        apiKey: "AIzaSyBeHGuUBPzvPf6DoROXTg2tpKx4q5vEcgc", 
+        authDomain: "royal-auto-hub.firebaseapp.com", 
+        projectId: "royal-auto-hub", 
+        appId: "1:663210431274:web:6ba6abb2457782e7a1c453" 
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    let selectedRating = 0;
+
+    window.setRating = function(n) {
+        selectedRating = n;
+        document.querySelectorAll('#starContainer i').forEach((s, i) => {
+            s.className = i < n ? 'fas fa-star text-2xl text-yellow-500 cursor-pointer' : 'far fa-star text-2xl text-yellow-500 cursor-pointer';
+        });
+    };
+
+    window.submitReview = async function() {
+        const name = document.getElementById('reviewName').value;
+        const comment = document.getElementById('reviewComment').value;
+        if(!name || !comment || selectedRating === 0) { alert("Please fill all fields!"); return; }
+        try {
+            await addDoc(collection(db, "reviews"), { name, comment, rating: selectedRating, timestamp: serverTimestamp() });
+            alert("Review Sent!");
+            document.getElementById('reviewName').value = '';
+            document.getElementById('reviewComment').value = '';
+            window.setRating(0);
+        } catch (e) { alert("Error! Check Database Rules."); }
+    };
+
+    onSnapshot(query(collection(db, "reviews"), orderBy("timestamp", "desc")), (snap) => {
+        const list = document.getElementById('reviewList');
+        list.innerHTML = '';
+        snap.forEach((doc) => {
+            const d = doc.data();
+            list.innerHTML += `<div class="bg-white p-4 rounded-xl shadow border-l-4 border-blue-900 mb-3">
+                <div class="flex justify-between"><b>${d.name}</b> <span class="text-yellow-500">${'⭐'.repeat(d.rating)}</span></div>
+                <p class="text-sm text-gray-600 italic">"${d.comment}"</p>
+            </div>`;
+        });
+    });
+</script>
