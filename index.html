@@ -62,9 +62,11 @@
             <div class="px-6 py-4 flex items-center gap-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer" onclick="window.showSection('sell-car');">
                 <i class="fas fa-hand-holding-usd text-[#4b286d] text-xl w-6 text-center"></i> <span class="text-gray-700 font-semibold">Sell your car</span>
             </div>
-            <div class="px-6 py-4 flex items-center gap-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer" onclick="window.openProtectedSection('loans');">
-                <i class="fas fa-percent text-[#4b286d] text-xl w-6 text-center"></i> <span class="text-gray-700 font-semibold">Finance <i class="fas fa-lock text-xs text-gray-400 ml-1"></i></span>
-            </div>
+            <div class="px-6 py-4 flex items-center gap-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer" onclick="window.showSection('loans');">
+    <i class="fas fa-percent text-[#4b286d] text-xl w-6 text-center"></i> 
+    <span class="text-gray-700 font-semibold">Finance Partners</span>
+</div>
+
             <div class="px-6 py-4 flex items-center gap-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer" onclick="window.showSection('exchange');">
                 <i class="fas fa-exchange-alt text-[#4b286d] text-xl w-6 text-center"></i> <span class="text-gray-700 font-semibold">Exchange</span>
             </div>
@@ -225,6 +227,43 @@
                     <button onclick="window.sendToWhatsApp('Exchange')" class="w-full bg-blue-900 text-white py-3 rounded-lg font-bold shadow-lg">
                         Submit Exchange Inquiry
                     </button>
+                </div>
+            </div>
+        </section>
+        <section id="loans" class="content-section hidden">
+            <h2 class="text-lg font-bold text-blue-900 mb-4 border-l-4 border-yellow-500 pl-2">Our Finance Partners</h2>
+            
+            <div class="grid grid-cols-1 gap-4 pb-10">
+                <div class="bg-white p-5 rounded-2xl shadow-md border-l-4 border-red-600 flex items-center justify-between">
+                    <div>
+                        <h3 class="font-extrabold text-gray-800 text-lg">Mahindra Finance</h3>
+                        <p class="text-xs text-gray-500 italic">Specialist in Vehicle Finance</p>
+                    </div>
+                    <i class="fas fa-university text-2xl text-red-600"></i>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl shadow-md border-l-4 border-orange-500 flex items-center justify-between">
+                    <div>
+                        <h3 class="font-extrabold text-gray-800 text-lg">Chola Finance</h3>
+                        <p class="text-xs text-gray-500 italic">Trusted Partner for Used Cars</p>
+                    </div>
+                    <i class="fas fa-shield-alt text-2xl text-orange-500"></i>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl shadow-md border-l-4 border-purple-700 flex items-center justify-between">
+                    <div>
+                        <h3 class="font-extrabold text-gray-800 text-lg">IDFC First Bank</h3>
+                        <p class="text-xs text-gray-500 italic">Fast & Digital Approval</p>
+                    </div>
+                    <i class="fas fa-landmark text-2xl text-purple-700"></i>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl shadow-md border-l-4 border-blue-800 flex items-center justify-between">
+                    <div>
+                        <h3 class="font-extrabold text-gray-800 text-lg">Indostar Capital</h3>
+                        <p class="text-xs text-gray-500 italic">Easy EMI Options</p>
+                    </div>
+                    <i class="fas fa-hand-holding-usd text-2xl text-blue-800"></i>
                 </div>
             </div>
         </section>
