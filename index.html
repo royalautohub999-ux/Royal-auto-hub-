@@ -398,10 +398,9 @@ window.sendToWhatsApp = function(type) {
     const db = getFirestore(app);
     let selectedRating = 0;
 
-    // Line 399 se niche ye daalein
-window.currentReviewId = null;
+        window.currentReviewId = null;
 
-// Step 1: Star dabate hi rating save
+// STEP 1: Star dabate hi rating save hogi
 window.submitQuickStar = async (n) => {
     // Stars peele karne ke liye
     document.querySelectorAll('.s-star').forEach((s, i) => {
@@ -415,7 +414,6 @@ window.submitQuickStar = async (n) => {
     });
 
     try {
-        // Firebase mein rating save
         const docRef = await addDoc(collection(db, "reviews"), {
             stars: n,
             name: "Customer",
@@ -423,18 +421,33 @@ window.submitQuickStar = async (n) => {
             date: new Date()
         });
         window.currentReviewId = docRef.id;
-        // Step 1: Feedback box dikhana
+        
+        // Feedback box dikhana
         document.getElementById('feedbackBox').classList.remove('hidden');
         document.getElementById('reviewStepText').innerText = "Shukriya! " + n + " Stars save ho gaye.";
-    } catch (e) {
-        console.error("Error saving rating: ", e);
-    }
-}; // <-- YE BRACKET LAGANA ZARURI HAI (Function yahan khatam)
+    } catch (e) { console.error(e); }
+};
 
-// AB YE CODE BAAHAR HAI, ISLIYE WEBSITE KHULTE HI PURANE REVIEWS DIKHAYEGA
+// STEP 2: Feedback update (Optional)
+window.updateReviewWithText = async () => {
+    alert("Feedback received! Thank you Rahul bhai.");
+    window.resetReviewForm();
+};
+
+window.resetReviewForm = () => {
+    document.getElementById('feedbackBox').classList.add('hidden');
+    document.getElementById('reviewStepText').innerText = "Hame Star Rating Dein:";
+    document.querySelectorAll('.s-star').forEach(s => {
+        s.classList.replace('fas', 'far');
+        s.classList.remove('text-yellow-500');
+    });
+};
+
+// YAHAN SE REVIEWS LOAD HONGE (Bina click kiye)
 onSnapshot(query(collection(db, "reviews"), orderBy("date", "desc")), (snap) => {
     const list = document.getElementById('reviewList');
     if (!list) return;
+    
     list.innerHTML = ""; 
     snap.forEach(doc => {
         const d = doc.data();
@@ -452,19 +465,3 @@ onSnapshot(query(collection(db, "reviews"), orderBy("date", "desc")), (snap) => 
         }
     });
 });
-
-
-// Step 2: Feedback update (Optional)
-window.updateReviewWithText = () => {
-    alert("Feedback received! Thank you Rahul bhai.");
-    window.resetReviewForm();
-};
-
-window.resetReviewForm = () => {
-    document.getElementById('feedbackBox').classList.add('hidden');
-    document.getElementById('reviewStepText').innerText = "Hame Star Rating Dein:";
-    document.querySelectorAll('.s-star').forEach(s => {
-        s.classList.replace('fas', 'far');
-        s.classList.remove('text-yellow-500');
-    });
-};
