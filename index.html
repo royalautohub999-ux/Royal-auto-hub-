@@ -349,7 +349,6 @@
             </div>
         </div>
     </div>
-
     <script>
         window.isLoggedIn = false;
         window.openSidebar = function() { document.getElementById('sidebarOverlay').classList.remove('hidden'); document.getElementById('sidebar').style.transform = 'translateX(0)'; };
@@ -382,7 +381,6 @@ window.sendToWhatsApp = function(type) {
     window.open(`https://wa.me/919800382378?text=${msg}`, '_blank');
 };
     </script>
-
     <<script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getFirestore, collection, addDoc, onSnapshot, orderBy, query, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
@@ -393,19 +391,19 @@ window.sendToWhatsApp = function(type) {
         projectId: "royal-auto-hub", 
         appId: "1:663210431274:web:6ba6abb2457782e7a1c453" 
     };
-
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     let selectedRating = 0;
 // Purana sara script hatakar ye daalein
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);iewId = null;
+const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 window.currentReviewId = null;
 
-// STEP 1: Star click karte hi rating save hogi
+// STEP 1: Star dabate hi rating save hogi
 window.submitQuickStar = async (n) => {
-    // Stars highlight karna
     document.querySelectorAll('.s-star').forEach((s, i) => {
         if (i < n) { 
             s.classList.replace('far', 'fas'); 
@@ -424,7 +422,6 @@ window.submitQuickStar = async (n) => {
             date: new Date()
         });
         window.currentReviewId = docRef.id;
-        
         document.getElementById('feedbackBox').classList.remove('hidden');
         document.getElementById('reviewStepText').innerText = "Shukriya! " + n + " Stars save ho gaye.";
     } catch (e) { console.error(e); }
@@ -445,11 +442,10 @@ window.resetReviewForm = () => {
     });
 };
 
-// YAHAN SE REVIEWS AUTOMATIC LOAD HONGE
+// REVIEWS AUTOMATIC LOAD (Website khulte hi)
 onSnapshot(query(collection(db, "reviews"), orderBy("date", "desc")), (snap) => {
     const list = document.getElementById('reviewList');
     if (!list) return;
-    
     list.innerHTML = ""; 
     snap.forEach(doc => {
         const d = doc.data();
@@ -469,4 +465,4 @@ onSnapshot(query(collection(db, "reviews"), orderBy("date", "desc")), (snap) => 
 });
 </script>
 </body>
-</html>  
+</html>
