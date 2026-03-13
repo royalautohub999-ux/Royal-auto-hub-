@@ -397,12 +397,15 @@ window.sendToWhatsApp = function(type) {
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     let selectedRating = 0;
+// Purana sara script hatakar ye daalein
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-        window.currentReviewId = null;
+window.currentReviewId = null;
 
-// STEP 1: Star dabate hi rating save hogi
+// STEP 1: Star click karte hi rating save hogi
 window.submitQuickStar = async (n) => {
-    // Stars peele karne ke liye
+    // Stars highlight karna
     document.querySelectorAll('.s-star').forEach((s, i) => {
         if (i < n) { 
             s.classList.replace('far', 'fas'); 
@@ -422,15 +425,14 @@ window.submitQuickStar = async (n) => {
         });
         window.currentReviewId = docRef.id;
         
-        // Feedback box dikhana
         document.getElementById('feedbackBox').classList.remove('hidden');
         document.getElementById('reviewStepText').innerText = "Shukriya! " + n + " Stars save ho gaye.";
     } catch (e) { console.error(e); }
 };
 
-// STEP 2: Feedback update (Optional)
-window.updateReviewWithText = async () => {
-    alert("Feedback received! Thank you Rahul bhai.");
+// STEP 2: Feedback update
+window.updateReviewWithText = () => {
+    alert("Dhanyawad Rahul bhai! Feedback save ho gaya.");
     window.resetReviewForm();
 };
 
@@ -443,7 +445,7 @@ window.resetReviewForm = () => {
     });
 };
 
-// YAHAN SE REVIEWS LOAD HONGE (Bina click kiye)
+// YAHAN SE REVIEWS AUTOMATIC LOAD HONGE
 onSnapshot(query(collection(db, "reviews"), orderBy("date", "desc")), (snap) => {
     const list = document.getElementById('reviewList');
     if (!list) return;
@@ -465,3 +467,6 @@ onSnapshot(query(collection(db, "reviews"), orderBy("date", "desc")), (snap) => 
         }
     });
 });
+</script>
+</body>
+</html>  
