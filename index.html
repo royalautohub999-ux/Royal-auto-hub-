@@ -38,7 +38,6 @@
         </a>
     </div>
 
-
     <div id="sidebarOverlay" class="fixed inset-0 bg-black/60 z-[60] hidden backdrop-blur-sm" onclick="window.closeSidebar()"></div>
 
     <div id="sidebar" class="fixed top-0 left-0 h-full w-4/5 max-w-sm bg-white z-[70] shadow-2xl flex flex-col">
@@ -276,10 +275,11 @@
                     <div class="w-32 h-32 mx-auto mb-4 p-1 bg-white rounded-full overflow-hidden shadow-xl border-4 border-yellow-400">
                         <     <img src="https://i.ibb.co/m5sZ7CZJ/1000144572.jpg" class="w-full h-full object-cover rounded-full" alt="Rahul Mahata">
                     </div>
-                        <h3 class="text-2xl font-bold text-gold tracking-wide">Rahul Mahata</h3>
+                    <h3 class="text-2xl font-bold text-gold tracking-wide">Rahul Mahata</h3>
                     <p class="text-xs uppercase tracking-widest text-yellow-200 mb-3">Owner & Founder</p>
                     <div class="w-12 h-1 bg-yellow-400 mx-auto mb-4"></div>
-                    <p class="text-sm italic opacity-90 leading-relaxed px-2">"Jhargram ki sabse bharosemand used car dealership. Humara maksad aapko behtareen quality ki gaadiyan sahi daam par dilana hai."</p>
+                    <p class="text-sm italic opacity-90 leading-relaxed px-2">""আমাদের লক্ষ্য হলো গ্রাহকদের বিশ্বাস, সেরা পরিষেবা এবং সঠিক মূল্য প্রদানের মাধ্যমে এই অঞ্চলের এক নম্বর সেকেন্ড-হ্যান্ড গাড়ির শোরুম হিসেবে নিজেদের প্রতিষ্ঠিত করা।"
+"</p>
                 </div>
             </div>
 
@@ -349,6 +349,39 @@
             </div>
         </div>
     </div>
+    </div> 
+
+<footer class="bg-blue-900 text-white mt-12 py-8 rounded-t-3xl shadow-2xl border-t-4 border-yellow-500">
+    <div class="max-w-md mx-auto px-6 text-center">
+        <h2 class="text-3xl font-black mb-1 text-white">Royal Auto Hub</h2>
+        <p class="text-gray-300 text-sm mb-6 font-medium">Jhargram's Premium Used Car Showroom</p>
+
+        <div class="flex justify-center gap-5 mb-8">
+            <a href="https://www.facebook.com/share/1AnwDM9nDP/" target="_blank" class="w-12 h-12 bg-white text-blue-900 rounded-full flex items-center justify-center text-2xl hover:bg-yellow-500 hover:text-white transition shadow-lg border-2 border-transparent hover:border-white">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://youtube.com/@royalautohub-z9s?si=EeQQl01uUXPov74I" target="_blank" class="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center text-2xl hover:bg-yellow-500 hover:text-white transition shadow-lg border-2 border-transparent hover:border-white">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+
+        <div class="text-sm text-gray-200 space-y-3 mb-6 bg-blue-800 p-4 rounded-2xl">
+            <p class="flex items-center justify-center gap-2">
+                <i class="fas fa-map-marker-alt text-yellow-500 text-lg"></i> 
+                <span>Jhargram, West Bengal</span>
+            </p>
+            <p class="flex items-center justify-center gap-2">
+                <i class="fas fa-phone-alt text-yellow-500 text-lg"></i> 
+                <a href="tel:9800382378" class="font-bold">+91 9800382378</a>
+            </p>
+        </div>
+
+        <div class="border-t border-blue-800 pt-4">
+            <p class="text-xs text-gray-400 font-medium">© 2026 Royal Auto Hub. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
     <script>
         window.isLoggedIn = false;
         window.openSidebar = function() { document.getElementById('sidebarOverlay').classList.remove('hidden'); document.getElementById('sidebar').style.transform = 'translateX(0)'; };
@@ -360,6 +393,13 @@
             document.getElementById(id).classList.remove('hidden');
             window.scrollTo(0, 0);
         };
+            // Website load hote hi Car List (Buy Car) dikhane ka code
+    window.onload = function() {
+        if(window.showSection) {
+            window.showSection('buy-car'); 
+        }
+    };
+
         window.openCarModal = function(name, d1, d2, d3, d4, price) {
             document.getElementById('detName').innerText = name;
             document.getElementById('detList').innerHTML = '<div class="py-2 border-b">Price: <b>'+price+'</b></div><div class="py-2">Info: '+d1+' | '+d2+'</div>';
