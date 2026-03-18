@@ -8,11 +8,21 @@
     <meta name="description" content="Royal Auto Hub - Best used car showroom in Jhargram. Buy pre-owned cars like Bolero, Eeco, Celerio at best prices.">
     <meta name="keywords" content="Royal Auto Hub, Used cars in Jhargram, Second hand cars West Bengal, Buy used Bolero, Used car showroom near me">
     
-    <meta name="google-site-verification" content="w2bJgZpZCPrITszBZreutU6IgSF_WZJ3dsnmzjtPsX8" />
+    <meta name="google-site-verification" content="ZLQqIAItkMzrzsBgk2Dg4FI1AmgaSZUEfZ7QZr9BSbs" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+      /* Logo ko ruk-ruk ke ghumane ka CSS */
+  @keyframes rukRukKeGhumo {
+    0% { transform: rotate(0deg); }
+    15% { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .gool-ghumo {
+    animation: rukRukKeGhumo 6s ease-in-out infinite;
+  }
+
         .hidden { display: none !important; }
         .text-gold { color: #FFD700; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
         .news-bar { background-color: #FFD700; color: #000; padding: 8px 0; font-weight: bold; overflow: hidden; white-space: nowrap; border-bottom: 2px solid #1e3a8a; }
@@ -95,18 +105,30 @@
     </div>
 
     <header class="bg-blue-900 p-6 shadow-xl text-center relative border-b-4 border-yellow-500 rounded-b-2xl">
-        <img src="https://i.ibb.co/9k3bhYjr/1000138115-removebg-preview.png" class="h-24 mx-auto mb-2 drop-shadow-lg" alt="Logo">
+        <img src="https://i.ibb.co/9k3bhYjr/1000138115-removebg-preview.png" class="gool-ghumo h-24 mx-auto mb-2 drop-shadow-lg" alt="Logo">
+
         <h1 class="text-3xl font-extrabold text-gold tracking-wider uppercase font-serif">ROYAL AUTO HUB</h1>
         <p class="text-sm italic font-light text-gray-100 tracking-wide mt-1">Quality you can trust</p>
     </header>
 
-    <div class="news-bar shadow-md">
-        <div class="news-text">
-            📢 New Arrival: Indigo eCS Available! &nbsp;&nbsp;|&nbsp;&nbsp; 
-            🔥 Bolero & Celerio at Best Prices &nbsp;&nbsp;|&nbsp;&nbsp; 
-            🚗 Call 9800382378 for Inquiry
-        </div>
-    </div>
+   <div class="bg-yellow-400 text-black font-bold py-2 border-b-2 border-yellow-500 shadow-sm">
+    <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">
+        
+        <span onclick="window.showSection('buy-car')" class="cursor-pointer hover:text-blue-800 hover:underline mx-4">
+            🚗 New Arrival: Indigo eCS Available! (View Cars)
+        </span> 
+        | 
+        
+        <span onclick="window.showSection('sell-car')" class="cursor-pointer hover:text-blue-800 hover:underline mx-4">
+            💰 Sell Your Old Car at Best Price!
+        </span>
+        | 
+        <span onclick="window.open('https://wa.me/919800382378?text=Hello Royal Auto Hub!', '_blank')" class="cursor-pointer hover:text-blue-800 hover:underline mx-4">
+            📞 Contact for Test Drive: +91 9800382378
+        </span>
+
+    </marquee>
+</div>
 
     <nav class="flex justify-between items-center bg-white p-3 shadow-md border-b sticky top-0 z-30">
         <button onclick="window.openSidebar()" class="flex items-center gap-2 p-2 focus:outline-none hover:text-yellow-600 transition border-2 border-transparent rounded-lg">
@@ -344,7 +366,7 @@
                 <div id="detList" class="space-y-2 text-sm text-gray-700 mb-4"></div>
                 <div class="grid grid-cols-2 gap-2">
                     <button onclick="window.makeCall('+919800382378')" class="bg-blue-900 text-white py-2 rounded-lg font-bold"><i class="fas fa-phone-alt"></i> Call Us</button>
-                    <button id="btnTestDrive" class="bg-green-500 text-white py-2 rounded-lg font-bold"><i class="fab fa-whatsapp"></i> Test Drive</button>
+                   <button id="btnTestDrive" onclick="window.open('https://wa.me/919800382378?text=Hello Royal Auto Hub, mujhe ek gaadi ki Test Drive leni hai.', '_blank')" class="bg-green-500 text-white py-2 px-4 rounded-lg font-bold w-full mt-2"><i class="fab fa-whatsapp text-lg mr-1"></i> Test Drive</button>
                 </div>
             </div>
         </div>
