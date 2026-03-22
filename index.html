@@ -170,6 +170,13 @@
        <p class="text-xs text-gray-500 mb-2">Petrol |49,000 KM | 1st Owner</p>
        <button onclick="window.openCarModal('2019 Maruti Celerio', '49,000 KM', 'Petrol', '1st Owner', 'BS-VI', '₹ 3.00 Lakh')" class="w-full bg-blue-900 text-white py-2 rounded-lg font-bold">View Details</button>
                 </div>
+                        
+              <div class="bg-white p-3 rounded-xl shadow-lg border border-gray-100 relative hover:shadow-xl transition">
+       <a href="https://ibb.co/RpntCMDY"><img src="https://i.ibb.co/QFBh6qKp/IMG-20260322-WA0005.jpg" alt="IMG-20260322-WA0005" border="0"></a>
+       <h3 class="font-bold text-lg text-gray-800">06 Nov 2020 Maruti Suzuki Eeco</h3>
+       <p class="text-xs text-gray-500 mb-2">Petrol/Lpg |55,300 KM | 1st Owner</p>
+       <button onclick="window.openCarModal('2020 Maruti Suzuki Eeco', '55,300 KM', 'Petrol', '1st Owner', 'BS-VI', '₹ 4.30 Lakh')" class="w-full bg-blue-900 text-white py-2 rounded-lg font-bold">View Details</button>
+                </div>
                 <div class="bg-white p-3 rounded-xl shadow-lg border border-gray-100 relative hover:shadow-xl transition">
                     <span class="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded animate-pulse z-10">NEW ARRIVAL</span>
                     <img src="https://i.ibb.co/DHkpyMJ9/1772861099731.png" class="rounded-lg w-full h-48 object-cover mb-3" alt="Indigo eCS">
@@ -282,7 +289,7 @@
                 <div class="bg-white p-5 rounded-2xl shadow-md border-l-4 border-blue-800 flex items-center justify-between">
                     <div>
                         <h3 class="font-extrabold text-gray-800 text-lg">Indostar Capital</h3>
-                        <p class="text-xs text-gray-500 italic">Easy EMI Options</p>
+                    <p class="text-xs text-gray-500 italic">Easy EMI Options</p>
                     </div>
                     <i class="fas fa-hand-holding-usd text-2xl text-blue-800"></i>
                 </div>
@@ -421,8 +428,7 @@
             window.showSection('buy-car'); 
         }
     };
-
-        window.openCarModal = function(name, d1, d2, d3, d4, price) {
+window.openCarModal = function(name, d1, d2, d3, d4, price) {
             document.getElementById('detName').innerText = name;
             document.getElementById('detList').innerHTML = '<div class="py-2 border-b">Price: <b>'+price+'</b></div><div class="py-2">Info: '+d1+' | '+d2+'</div>';
             document.getElementById('carModal').classList.remove('hidden');
