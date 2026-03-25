@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyundai Verna CRDi SX - Royal Auto Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* A small style for selected thumbnail border */
+        .thumbnail-active {
+            border-color: #1e3a8a; /* Indigo-900 */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="bg-white p-4 shadow-md flex items-center gap-4 sticky top-0 z-50">
+        <a href="1.html" class="bg-gray-200 text-blue-900 px-3 py-1.5 rounded-lg font-bold text-sm transition hover:bg-gray-300">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+        <h1 class="text-xl font-bold text-blue-900 tracking-wide">Royal Auto Hub</h1>
+    </div>
+
+    <div class="p-4 max-w-lg mx-auto pb-24">
+        
+        <h2 class="text-2xl font-extrabold text-gray-900">Hyundai Verna CRDi SX</h2>
+        <p class="text-sm text-gray-500 mb-4">First Owner | WB Registration</p>
+
+        <div class="mb-6">
+            <img id="mainImage" src="https://i.ibb.co/p6Pyg3ML/IMG-20260211-WA0002.jpg" class="w-full h-64 object-cover rounded-2xl shadow-lg border border-gray-100 mb-3" alt="Hyundai Verna Main">
+            
+            <div class="grid grid-cols-4 gap-2">
+                <img onclick="changeMainImage(this)" src="https://i.ibb.co/p6Pyg3ML/IMG-20260211-WA0002.jpg" class="h-20 w-full object-cover rounded-lg border-2 border-gray-100 cursor-pointer shadow thumbnail-active" alt="Verna Thumb 1">
+                <img onclick="changeMainImage(this)" src="https://i.ibb.co/WWH4M9r0/IMG-20260211-WA0003.jpg" class="h-20 w-full object-cover rounded-lg border-2 border-gray-100 cursor-pointer shadow transition hover:border-blue-700" alt="Verna Thumb 2">
+                <img onclick="changeMainImage(this)" src="https://i.ibb.co/KcL6Qc5g/IMG-20260211-WA0004.jpg" class="h-20 w-full object-cover rounded-lg border-2 border-gray-100 cursor-pointer shadow transition hover:border-blue-700" alt="Verna Thumb 3">
+                <img onclick="changeMainImage(this)" src="https://i.ibb.co/W94pWqH/IMG-20260211-WA0005.jpg" class="h-20 w-full object-cover rounded-lg border-2 border-gray-100 cursor-pointer shadow transition hover:border-blue-700" alt="Verna Thumb 4">
+            </div>
+        </div>
+
+        <div class="flex items-baseline gap-3 mb-6">
+            <p class="text-3xl font-extrabold text-blue-900">Call for Price</p>
+            <span class="bg-indigo-100 text-indigo-900 text-xs font-semibold px-2.5 py-1 rounded-full">Pre-Owned</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mb-6">
+            <div class="bg-white p-4 rounded-xl shadow border border-gray-100 flex items-center gap-3">
+                <i class="fas fa-calendar-alt text-2xl text-indigo-600"></i>
+                <div>
+                    <p class="text-xs text-gray-500">Year</p>
+                    <p class="font-bold text-gray-900">2013</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow border border-gray-100 flex items-center gap-3">
+                <i class="fas fa-road text-2xl text-indigo-600"></i>
+                <div>
+                    <p class="text-xs text-gray-500">KMs Driven</p>
+                    <p class="font-bold text-gray-900">N/A</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow border border-gray-100 flex items-center gap-3">
+                <i class="fas fa-gas-pump text-2xl text-indigo-600"></i>
+                <div>
+                    <p class="text-xs text-gray-500">Fuel Type</p>
+                    <p class="font-bold text-gray-900">Diesel</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow border border-gray-100 flex items-center gap-3">
+                <i class="fas fa-user-tie text-2xl text-indigo-600"></i>
+                <div>
+                    <p class="text-xs text-gray-500">Owner</p>
+                    <p class="font-bold text-gray-900">1st Owner</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl shadow-md mb-6 border border-gray-100">
+            <h3 class="font-bold text-gray-800 text-lg mb-4 border-b border-gray-100 pb-2 flex items-center gap-2">
+                <i class="fas fa-info-circle text-blue-700"></i> Basic Information
+            </h3>
+            <ul class="text-gray-700 text-sm space-y-3">
+                <li class="flex justify-between"><span>📋 Model:</span> <span class="font-semibold text-gray-900">Hyundai Verna CRDi SX (Diesel)</span></li>
+                <li class="flex justify-between"><span>🗓 Year of Mfg:</span> <span class="font-semibold text-gray-900">2013</span></li>
+                <li class="flex justify-between"><span>🏷 Registration:</span> <span class="font-semibold text-gray-900">West Bengal (WB Reg)</span></li>
+                <li class="flex justify-between"><span>🚗 Mileage (Approx):</span> <span class="font-semibold text-gray-900">N/A</span></li>
+                <li class="flex justify-between"><span>👤 Seller Type:</span> <span class="font-semibold text-gray-900">Dealer (Royal Auto Hub)</span></li>
+            </ul>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl shadow-md mb-6 border border-gray-100">
+            <h3 class="font-bold text-gray-800 text-lg mb-4 border-b border-gray-100 pb-2 flex items-center gap-2">
+                <i class="fas fa-star text-yellow-600"></i> Special Features
+            </h3>
+            <div class="grid grid-cols-2 gap-x-4 gap-y-3 text-gray-700 text-sm">
+                <div class="flex items-center gap-2"><span>✅</span> Chilled AC</div>
+                <div class="flex items-center gap-2"><span>✅</span> Power Steering</div>
+                <div class="flex items-center gap-2"><span>✅</span> Power Windows (All)</div>
+                <div class="flex items-center gap-2"><span>✅</span> Alloy Wheels (Black)</div>
+                <div class="flex items-center gap-2"><span>✅</span> Music System</div>
+                <div class="flex items-center gap-2"><span>✅</span> Remote Lock</div>
+            </div>
+        </div>
+
+        <div class="bg-indigo-50 p-5 rounded-2xl mb-8">
+            <h3 class="font-bold text-indigo-950 text-lg mb-3 flex items-center gap-2">
+                <i class="fas fa-clipboard-list text-indigo-800"></i> Seller Notes
+            </h3>
+            <p class="text-gray-700 text-sm leading-relaxed">
+                Check out this excellent condition Hyundai Verna CRDi SX. It's a first-owner vehicle with West Bengal registration. The car has been well-maintained, features black alloy wheels, and is in scratchless condition. Ideal for someone looking for a powerful diesel sedan. Please call us to fix a test drive and get the best price.
+            </p>
+        </div>
+        
+    </div>
+
+    <div class="fixed bottom-0 left-0 right-0 bg-white p-4 shadow-top border-t border-gray-100 z-50 flex gap-3">
+        <a href="tel:9800382378" class="flex-1 bg-blue-900 text-white text-center py-3 rounded-xl font-bold shadow-lg transition hover:bg-blue-800 flex items-center justify-center gap-2 text-lg">
+            <i class="fas fa-phone-alt"></i> Call Now
+        </a>
+        <a href="https://wa.me/919800382378?text=Hello,%20I%20am%20interested%20in%20the%20Hyundai%20Verna%202013%20-%20Royal%20Auto%20Hub." class="flex-1 bg-green-500 text-white text-center py-3 rounded-xl font-bold shadow-lg transition hover:bg-green-600 flex items-center justify-center gap-2 text-lg">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+    </div>
+
+    <script>
+        function changeMainImage(thumbnailElement) {
+            // 1. Get the Main Image element
+            const mainImage = document.getElementById('mainImage');
+            
+            // 2. Change its source to the clicked thumbnail's source
+            mainImage.src = thumbnailElement.src;
+            
+            // 3. Remove 'thumbnail-active' class from all thumbnails
+            const thumbnails = document.querySelectorAll('.grid-cols-4 img');
+            thumbnails.forEach(thumb => {
+                thumb.classList.remove('thumbnail-active');
+                thumb.classList.remove('border-blue-700'); // Remove hover color
+                thumb.classList.add('border-gray-100');     // Reset to default border
+            });
+            
+            // 4. Add 'thumbnail-active' class to the clicked thumbnail
+            thumbnailElement.classList.add('thumbnail-active');
+            thumbnailElement.classList.add('border-blue-700');
+            thumbnailElement.classList.remove('border-gray-100');
+        }
+    </script>
+</body>
+</html>
