@@ -355,9 +355,26 @@
 
     <div id="reviewList" class="mt-8 space-y-4"></div>
 </section>
-
+<div id="authModal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 backdrop-blur-sm bg-black/50">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-sm overflow-hidden">
+        <div class="bg-blue-900 p-4 text-white flex justify-between items-center">
+            <h2 id="authTitle" class="font-bold text-lg">Login</h2>
+            <button onclick="window.closeAuthModal()" class="text-2xl font-bold">&times;</button>
+        </div>
+        <div class="p-5 space-y-4">
+            <input type="email" id="authEmail" placeholder="Email Address" class="w-full p-3 border rounded-lg outline-none">
+            <input type="password" id="authPassword" placeholder="Password" class="w-full p-3 border rounded-lg outline-none">
+            
+            <button id="authBtn" onclick="window.handleAuth()" class="w-full bg-blue-900 text-white py-3 rounded-lg font-bold shadow-lg">Login</button>
+            
+            <p class="text-center text-sm text-gray-600">
+                <span id="authToggleText">Don't have an account?</span>
+                <button onclick="window.toggleAuthMode()" id="authToggleBtn" class="text-blue-900 font-bold underline ml-1">Signup</button>
+            </p>
+        </div>
+    </div>
+</div>
     </main>
-
     <footer class="mt-10 p-6 bg-white border-t pb-24 text-center">
         <h2 class="text-lg font-bold text-blue-900">ROYAL AUTO HUB</h2>
         <div class="mt-4 flex justify-center space-x-6">
@@ -432,6 +449,20 @@
             window.showSection('buy-car'); 
         }
     };
+    // Auth Modal ko kholne aur band karne ke liye
+window.showLoginModal = () => document.getElementById('authModal').classList.remove('hidden');
+window.closeAuthModal = () => document.getElementById('authModal').classList.add('hidden');
+
+// Login aur Signup switch karne ke liye logic
+window.isLoginMode = true;
+window.toggleAuthMode = () => {
+    window.isLoginMode = !window.isLoginMode;
+    document.getElementById('authTitle').innerText = window.isLoginMode ? "Login" : "Signup";
+    document.getElementById('authBtn').innerText = window.isLoginMode ? "Login" : "Create Account";
+    document.getElementById('authToggleText').innerText = window.isLoginMode ? "Don't have an account?" : "Already have an account?";
+    document.getElementById('authToggleBtn').innerText = window.isLoginMode ? "Signup" : "Login";
+};
+
 window.openCarModal = function(name, d1, d2, d3, d4, price) {
             document.getElementById('detName').innerText = name;
             document.getElementById('detList').innerHTML = '<div class="py-2 border-b">Price: <b>'+price+'</b></div><div class="py-2">Info: '+d1+' | '+d2+'</div>';
@@ -456,6 +487,7 @@ window.sendToWhatsApp = function(type) {
     <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getFirestore, collection, addDoc, updateDoc, doc, onSnapshot, orderBy, query, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
     // 1. Firebase Configuration (Sirf ek baar)
     const firebaseConfig = { 
@@ -467,6 +499,56 @@ window.sendToWhatsApp = function(type) {
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
+    const auth = getAuth(app);
+// Login ya Signup handle karne ka main function
+window.handleAuth = async () => {
+    const email = document.getElementById('authEmail').value;
+    const password = document.getElementById('authPassword').value;
+
+    if(!email || !password) { alert("Email aur Password bhariye!"); return; }
+
+    try {
+        if (window.isLoginMode) {
+            // Login logic
+            await signInWithEmailAndPassword(auth, email, password);
+            alert("Login Successful!");
+        } else {
+            // Signup logic
+            await createUserWithEmailAndPassword(auth, email, password);
+            alert("Account Created & Logged In!");
+        }
+        window.closeAuthModal();
+    } catch (error) {
+        alert("Error: " + error.message);
+    }
+};
+
+// Logout function
+window.handleLogout = () => {
+    signOut(auth).then(() => {
+        alert("Logged Out Successfully!");
+    });
+};
+
+// User status check karke UI update karna
+onAuthStateChanged(auth, (user) => {
+    const topBtn = document.getElementById('topLoginText');
+    const sideBtn = document.getElementById('sidebarLoginText');
+    const sidebarHeader = document.querySelector('.bg-[#2c1338]');
+
+    if (user) {
+        if(topBtn) topBtn.innerText = "Logout";
+        if(sideBtn) sideBtn.innerText = "Logged In (Logout)";
+        // User login hai toh click par logout hoga
+        if(sidebarHeader) sidebarHeader.onclick = window.handleLogout;
+    } else {
+        if(topBtn) topBtn.innerText = "Login";
+        if(sideBtn) sideBtn.innerText = "Login/Signup";
+        // User logout hai toh click par wapas login modal khulega
+        if(sidebarHeader) sidebarHeader.onclick = window.showLoginModal;
+    }
+});
+
     window.currentReviewId = null; 
 
     // 2. STEP 1: Star Rating Save Karna
