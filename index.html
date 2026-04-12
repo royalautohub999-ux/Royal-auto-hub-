@@ -161,6 +161,26 @@
             <i class="fas fa-bars text-2xl text-blue-900"></i>
             <span class="text-sm font-bold uppercase text-blue-900 tracking-wide">Menu</span>
         </button>
+        <div class="flex items-center gap-3 px-2 overflow-x-auto no-scrollbar scroll-smooth">
+   <button onclick="window.showSection('home')"
+
+            class="flex items-center gap-1 text-[10px] font-bold text-blue-900 bg-white/50 px-2 py-1 rounded-lg border border-blue-100 whitespace-nowrap uppercase tracking-tighter">
+        <i class="fas fa-home"></i> Home
+    </button>
+
+           <button onclick="window.showSection('buy-car')" 
+                class="flex items-center gap-1 text-[10px] font-bold text-blue-900 bg-white/50 px-2 py-1 rounded-lg border border-blue-100 whitespace-nowrap uppercase tracking-tighter">
+            <i class="fas fa-car text-sm"></i>
+            Buy Car
+        </button>
+
+
+    <button onclick="window.openSellModal ? window.openSellModal() : alert('Sell Car feature coming soon!')" 
+            class="flex items-center gap-1 text-[10px] font-bold text-blue-900 bg-white/50 px-2 py-1 rounded-lg border border-blue-100 whitespace-nowrap uppercase tracking-tighter">
+        <i class="fas fa-tag"></i> Sell Car
+    </button>
+</div>
+
         <button onclick="window.showLoginModal()" class="flex items-center gap-2 bg-yellow-500 text-blue-900 px-5 py-2 rounded-full font-bold shadow-sm hover:bg-yellow-400 transition">
             <i class="fas fa-user-circle text-lg"></i> <span id="topLoginText">Login</span>
         </button>
@@ -173,7 +193,106 @@
                 <img src="https://i.ibb.co/jvkT8Mzx/1768181498879.png" class="mx-auto rounded-lg shadow-lg border border-yellow-500 mb-5 w-full object-cover" alt="Banner">
                 <button onclick="window.showSection('buy-car')" class="bg-yellow-500 text-blue-900 px-8 py-3 rounded-full font-bold shadow-lg w-full">View All Cars</button>
             </div>
-        </section>
+           <div class="p-4 bg-gray-50 rounded-xl mt-6">
+    <div class="grid grid-cols-2 gap-3 mb-6">
+        <div onclick="window.showSection('buy-car')" 
+             class="relative overflow-hidden bg-gradient-to-br from-purple-700 to-indigo-800 p-4 rounded-3xl shadow-lg cursor-pointer h-32 flex flex-col justify-between active:scale-95 transition-transform">
+            <h3 class="text-white font-bold text-lg leading-tight">Buy<br>car</h3>
+            <img src="https://cdn-icons-png.flaticon.com/512/744/744465.png" class="absolute -right-2 -bottom-2 w-20 opacity-80" alt="buy car">
+        </div>
+
+        <div onclick="window.showSection('sell-car')" 
+             class="relative overflow-hidden bg-gradient-to-br from-emerald-500 to-teal-700 p-4 rounded-3xl shadow-lg cursor-pointer h-32 flex flex-col justify-between active:scale-95 transition-transform">
+            <h3 class="text-white font-bold text-lg leading-tight">Sell<br>car</h3>
+            <img src="https://cdn-icons-png.flaticon.com/512/1023/1023223.png" class="absolute -right-2 -bottom-2 w-20 opacity-80" alt="sell car">
+        </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-4">
+<div onclick="window.showSection('insurance-section')" 
+     class="flex flex-col items-center gap-1 cursor-pointer active:scale-90 transition-transform">
+    <div class="bg-white p-3 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center w-full aspect-square">
+        <img src="https://cdn-icons-png.flaticon.com/512/3504/3504100.png" class="w-10">
+    </div>
+    <span class="text-[10px] font-medium text-gray-600 text-center">Insurance</span>
+</div>
+
+        <div onclick="window.showSection('loans')" class="flex flex-col items-center gap-1 cursor-pointer active:scale-90 transition-transform">
+            <div class="bg-white p-3 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center w-full aspect-square">
+                <img src="https://cdn-icons-png.flaticon.com/512/2489/2489756.png" class="w-10">
+            </div>
+            <span class="text-[10px] font-medium text-gray-600 text-center">Loans</span>
+        </div>
+
+        <div onclick="window.showSection('price-calculator')" class="flex flex-col items-center gap-1 cursor-pointer active:scale-90 transition-transform">
+            <div class="bg-white p-3 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center w-full aspect-square">
+                <img src="https://cdn-icons-png.flaticon.com/512/2850/2850341.png" class="w-10">
+            </div>
+            <span class="text-[10px] font-medium text-gray-600 text-center">Check car price</span>
+        </div>
+    </div>
+</div>
+</section> 
+<section id="price-calculator" class="content-section hidden p-4">
+    <h2 class="text-lg font-bold text-blue-900 mb-4 border-l-4 border-yellow-500 pl-2">Car Price Estimator</h2>
+    <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+        <div class="space-y-4">
+            <input type="text" id="valModel" placeholder="Car Model (e.g. Bolero)" class="w-full p-3 bg-gray-50 border rounded-xl outline-none focus:border-blue-900">
+            <div class="grid grid-cols-2 gap-3">
+                <input type="number" id="valYear" placeholder="Year (2018)" class="w-full p-3 bg-gray-50 border rounded-xl outline-none">
+                <input type="number" id="valKms" placeholder="KMs Driven" class="w-full p-3 bg-gray-50 border rounded-xl outline-none">
+            </div>
+            <select id="valCond" class="w-full p-3 bg-gray-50 border rounded-xl outline-none text-sm text-gray-600">
+                <option value="Excellent">Excellent Condition</option>
+                <option value="Good">Good Condition</option>
+                <option value="Fair">Fair Condition</option>
+            </select>
+            <button onclick="calculateMyPrice()" class="w-full bg-blue-900 text-white py-4 rounded-xl font-bold shadow-lg">GET ESTIMATE ON WHATSAPP</button>
+        </div>
+    </div>
+</section>
+<section id="insurance-section" class="content-section hidden p-4">
+    <h2 class="text-lg font-bold text-blue-900 mb-4 border-l-4 border-yellow-500 pl-2">Car Insurance Query</h2>
+    <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+        <div class="space-y-4">
+            <input type="text" id="insCarNumber" placeholder="Car Number (e.g. WB 34 XXXX)" class="w-full p-3 bg-gray-50 border rounded-xl outline-none focus:border-blue-900">
+            <input type="text" id="insExpiry" placeholder="Policy Expiry Date (Optional)" class="w-full p-3 bg-gray-50 border rounded-xl outline-none">
+            <p class="text-[10px] text-gray-400 font-bold uppercase">Select Service</p>
+            <select id="insType" class="w-full p-3 bg-gray-50 border rounded-xl outline-none">
+                <option value="New Insurance">New Insurance</option>
+                <option value="Renewal">Renewal</option>
+                <option value="Claim Help">Claim Assistance</option>
+            </select>
+            <button onclick="sendInsuranceQuery()" class="w-full bg-blue-900 text-white py-4 rounded-xl font-bold shadow-lg">
+                GET INSURANCE QUOTE
+            </button>
+        </div>
+    </div>
+</section>
+
+<section id="sell-car" class="content-section hidden">
+
+            </div>
+            <span class="text-[10px] font-medium text-gray-600 text-center">Check challan</span>
+        </div>
+
+        <div class="flex flex-col items-center gap-1 cursor-pointer active:scale-90 transition-transform">
+            <div class="bg-white p-3 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center w-full aspect-square">
+                <img src="https://cdn-icons-png.flaticon.com/512/5717/5717277.png" class="w-10">
+            </div>
+            <span class="text-[10px] font-medium text-gray-600 text-center">FASTag</span>
+        </div>
+
+        <div class="flex flex-col items-center gap-1 cursor-pointer active:scale-90 transition-transform">
+            <div class="bg-white p-3 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center w-full aspect-square">
+                <img src="https://cdn-icons-png.flaticon.com/512/2736/2736934.png" class="w-10">
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+</section>
 
         <section id="buy-car" class="content-section">
 
@@ -575,6 +694,8 @@
             sections.forEach(s => s.classList.add('hidden'));
             document.getElementById(id).classList.remove('hidden');
             window.scrollTo(0, 0);
+history.pushState({ sectionId: id }, "", "#" + id);
+
         };
         // Website load hote hi cars dikhao
         window.onload = function() { window.showSection('buy-car'); };
@@ -846,6 +967,51 @@ window.deleteCar = async (carId) => {
 
     <script>
     (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="oY3CokC6FTLi5Qkht4npG";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    // Phone ka back button handle karne ke liye logic
+window.onpopstate = function(event) {
+    // 1. Agar car details wala modal khula hai, toh pehle usey band karo
+    const modal = document.getElementById('carModal');
+    if (modal && !modal.classList.contains('hidden')) {
+        window.closeModal();
+        return; 
+    }
+
+    // 2. Agar user kisi section mein hai, toh back karne par pichle section ya home par bhej do
+    if (event.state && event.state.sectionId) {
+        document.querySelectorAll('.content-section').forEach(s => s.classList.add('hidden'));
+        document.getElementById(event.state.sectionId).classList.remove('hidden');
+    } else {
+        // Default home section dikhao
+        document.querySelectorAll('.content-section').forEach(s => s.classList.add('hidden'));
+        document.getElementById('home').classList.remove('hidden');
+    }
+};
+window.calculateMyPrice = function() {
+    const model = document.getElementById('valModel').value;
+    const year = document.getElementById('valYear').value;
+    const kms = document.getElementById('valKms').value;
+    const cond = document.getElementById('valCond').value;
+
+    if(!model || !year) { 
+        alert("Bhai, Car details bhariye!"); 
+        return; 
+    }
+
+    const msg = `*Price Valuation Request*%0A%0A*Car:* ${model}%0A*Year:* ${year}%0A*KMs:* ${kms}%0A*Condition:* ${cond}%0A%0APlease tell me the best price!`;
+    window.open(`https://wa.me/919800382378?text=${msg}`, '_blank');
+};
+// Line 978 ke baad jodein
+window.sendInsuranceQuery = function() {
+    const carNo = document.getElementById('insCarNumber').value;
+    const expiry = document.getElementById('insExpiry').value;
+    const type = document.getElementById('insType').value;
+
+    if(!carNo) { alert("Please enter Car Number!"); return; }
+
+    const msg = `*Insurance Inquiry - Royal Auto Hub*%0A%0A*Car No:* ${carNo}%0A*Expiry:* ${expiry}%0A*Service:* ${type}%0A%0AHi, I need help with my car insurance.`;
+    window.open(`https://wa.me/919800382378?text=${msg}`, '_blank');
+};
+
     </script>
 
 </body>
