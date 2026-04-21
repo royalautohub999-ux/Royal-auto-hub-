@@ -337,6 +337,28 @@ body.dark-mode {
             <div id="buy-car-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
              <div class="bg-white p-3 rounded-xl shadow-lg cursor-pointer">
+   <button onclick="window.openCarModal(
+      'Tata Tiago', 
+      '2017', 
+      'Diesel', 
+      'WB Reg', 
+      'Bs-VI', 
+      'Call for Price', 
+      'Well maintained car.', 
+      ['https://i.ibb.co/LqstMYj/exterior-image-165.jpg'], 
+      ['Power Windows', '2 Airbags', 'AC', 'Music System',  'Central Locking']
+  )" class="w-full text-left focus:outline-none">
+    
+    <img src="https://i.ibb.co/LqstMYj/exterior-image-165.jpg" alt="exterior image 165" border="0">
+    
+    <h3 class="font-bold text-lg text-gray-800">Tata Tiago</h3>
+    
+    <p class="text-xs text-gray-500">2017 • Diesel • WB Reg</p>
+    
+    <div class="mt-2 text-blue-600 font-medium text-sm"></div>
+    
+  </button>
+  </div>
   
   <button onclick="window.openCarModal(
       'Hyundai Verna CRDi SX', 
@@ -759,6 +781,13 @@ window.openCarModal = function(name, year, fuel, owner, engine, price, info, ima
     document.getElementById('detPrice').innerText = price;
     document.getElementById('detEngine').innerText = engine;
     document.getElementById('detInfo').innerText = info;
+    // WhatsApp aur Call buttons fix karne ke liye niche wala code add karein
+    const phoneNumber = "9800382378";
+    const waMessage = `Hi Royal Auto Hub, I am interested in ${name} (${year}). Please provide more details.`;
+
+    document.getElementById('callBtn').href = `tel:+91${phoneNumber}`;
+    document.getElementById('waBtn').href = `https://wa.me/91${phoneNumber}?text=${encodeURIComponent(waMessage)}`;
+    document.getElementById('waBtn').setAttribute('target', '_blank');
 
     // 2. Features Update
     const featureSection = document.getElementById('section-features');
