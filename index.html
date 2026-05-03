@@ -26,6 +26,23 @@
     perspective: 1000px; /* 3D गहराई के लिए */
     animation: tossStyleGhumo 4s ease-in-out infinite;
   }
+/* Car running animation */
+@keyframes carRun {
+    0% { left: -10%; transform: translateX(0); }
+    45% { transform: translateY(-2px); } /* Thoda jump effect */
+    50% { transform: translateY(0); }
+    100% { left: 110%; transform: translateX(0); }
+}
+
+.car-animation {
+    animation: carRun 2s linear infinite;
+}
+
+/* Preloader fade out class */
+.loader-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
 
         .hidden { display: none !important; }
         .text-gold { color: #FFD700; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
@@ -84,6 +101,15 @@ body.dark-mode {
     </style>
 </head>
 <body class="bg-gray-50 font-sans pb-24 overflow-x-hidden">
+<div id="preloader" class="fixed inset-0 z-[1000] bg-blue-900 flex flex-col items-center justify-center transition-opacity duration-500">
+    <div class="relative w-64 h-20">
+        <div class="car-animation text-yellow-400 text-6xl absolute">
+            <i class="fas fa-car-side"></i>
+        </div>
+        <div class="absolute bottom-0 w-full h-1 bg-yellow-500/30 rounded-full"></div>
+    </div>
+    <p class="text-white font-bold mt-4 tracking-widest animate-pulse">ROYAL AUTO HUB LOADING...</p>
+</div>
 
         <div class="fixed bottom-24 right-4 flex flex-col gap-3 z-40">
         <a href="tel:+919800382378" class="bg-blue-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center border-2 border-white">
@@ -1128,6 +1154,13 @@ window.addEventListener('DOMContentLoaded', () => {
             btn.classList.replace('text-blue-900', 'text-yellow-400');
         }
     }
+});
+window.addEventListener("load", function() {
+    const loader = document.getElementById("preloader");
+    // Website load hone ke 1.5 second baad loader hatega taaki animation dikhe
+    setTimeout(() => {
+        loader.classList.add("loader-hidden");
+    }, 1500); 
 });
 
     </script>
