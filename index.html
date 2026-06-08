@@ -328,300 +328,6 @@ body.dark-mode {
 <!-- ========== MARQUEE ========== -->
 <div class="bg-yellow-400 text-black font-bold py-2 border-b-2 border-yellow-500 shadow-sm">
     <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">
-        <span onclick="window.showSection('buy-car')" class="cursor-pointer hover:text-blue-800 hover:underline mx-4.car-animation {
-    animation: carRun 2s linear infinite;
-}
-
-/* Preloader fade out class */
-.loader-hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-        .hidden { display: none !important; }
-        .text-gold { color: #FFD700; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
-        .news-bar { background-color: #FFD700; color: #000; padding: 8px 0; font-weight: bold; overflow: hidden; white-space: nowrap; border-bottom: 2px solid #1e3a8a; }
-        .news-text { display: inline-block; padding-left: 100%; animation: moveNews 20s linear infinite; }
-        @keyframes moveNews { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
-        .content-section { animation: fadeIn 0.4s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .float-wa { animation: pulseWa 2s infinite; }
-        @keyframes pulseWa { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
-        #sidebar { transform: translateX(-100%); transition: transform 0.3s ease-in-out; }
-        .owner-card { background: linear-gradient(135deg, #2c1338 0%, #4b286d 100%); }
-        .car-slider {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Hide scrollbar */
-}
-.car-slider::-webkit-scrollbar { display: none; }
-.car-slider img {
-    flex: 0 0 100%;
-    scroll-snap-align: start;
-    object-fit: cover;
-    height: 250px;
-}
-.uniform-car-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 8px;
-}
-.indicator-dot { height: 8px; width: 8px; border-radius: 50%; background: #ddd; margin: 0 4px; }
-.indicator-active { background: #1e3a8a; width: 20px; border-radius: 4px; }
-/* Dark Mode Styles */
-body.dark-mode {
-    background-color: #121212 !important;
-    color: #e0e0e0 !important;
-}
-.dark-mode .bg-white {
-    background-color: #1f1f1f !important;
-    color: #ffffff !important;
-    border-color: #333 !important;
-}
-.dark-mode .bg-gray-50 {
-    background-color: #121212 !important;
-}
-.dark-mode .text-gray-700, .dark-mode .text-gray-600 {
-    color: #bbbbbb !important;
-}
-.dark-mode nav {
-    background-color: #1a1a1a !important;
-    border-bottom: 1px solid #333;
-}
-@keyframes roadMove { 0% { background-position: 0px 0px; } 100% { background-position: -20px 0px; } }
-@keyframes carDrive { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
-
-    </style>
-</head>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Royal Auto Hub - 2nd Hand Car Jhargram</title>
-    <meta name="description" content="Royal Auto Hub - Best used car showroom in Jhargram. Buy pre-owned cars like Bolero, Eeco, Celerio at best prices.">
-    <meta name="keywords" content="Royal Auto Hub, Used cars in Jhargram, Second hand cars West Bengal, Buy used Bolero, Used car showroom near me">
-    <meta name="google-site-verification" content="ZLQqIAItkMzrzsBgk2Dg4FI1AmgaSZUEfZ7QZr9BSbs" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        @keyframes tossStyleGhumo {
-            0%   { transform: rotateY(0deg); }
-            20%  { transform: rotateY(360deg) translateY(-20px); }
-            40%  { transform: rotateY(720deg) translateY(0); }
-            100% { transform: rotateY(720deg); }
-        }
-        .gool-ghumo {
-            display: inline-block;
-            perspective: 1000px;
-            animation: tossStyleGhumo 4s ease-in-out infinite;
-        }
-        @keyframes carRun {
-            0%   { left: -20%; }
-            100% { left: 110%; }
-        }
-        .car-animation {
-            position: absolute;
-            animation: carRun 2.5s linear infinite;
-        }
-        .loader-hidden {
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s;
-        }
-        .hidden { display: none !important; }
-        .text-gold { color: #FFD700; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
-        .content-section { animation: fadeIn 0.4s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .float-wa { animation: pulseWa 2s infinite; }
-        @keyframes pulseWa {
-            0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
-            70%  { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37,211,102,0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37,211,102,0); }
-        }
-        #sidebar { transform: translateX(-100%); transition: transform 0.3s ease-in-out; }
-        .owner-card { background: linear-gradient(135deg, #2c1338 0%, #4b286d 100%); }
-        .car-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-        .car-slider::-webkit-scrollbar { display: none; }
-        .car-slider img { flex: 0 0 100%; scroll-snap-align: start; object-fit: cover; height: 250px; }
-        .uniform-car-img { width: 100%; height: 200px; object-fit: cover; object-position: center; border-radius: 8px; }
-        .indicator-dot { height: 8px; width: 8px; border-radius: 50%; background: #ddd; margin: 0 4px; }
-        .indicator-active { background: #1e3a8a; width: 20px; border-radius: 4px; }
-        body.dark-mode { background-color: #121212 !important; color: #e0e0e0 !important; }
-        .dark-mode .bg-white { background-color: #1f1f1f !important; color: #ffffff !important; border-color: #333 !important; }
-        .dark-mode .bg-gray-50 { background-color: #121212 !important; }
-        .dark-mode .text-gray-700, .dark-mode .text-gray-600 { color: #bbbbbb !important; }
-        .dark-mode nav { background-color: #1a1a1a !important; border-bottom: 1px solid #333; }
-    </style>
-</head>
-<body class="bg-gray-50 font-sans pb-24 overflow-x-hidden">
-
-<!-- ========== PRELOADER ========== -->
-<div id="preloader" class="fixed inset-0 z-[1000] bg-blue-900 flex flex-col items-center justify-center transition-opacity duration-500">
-    <div class="relative w-72 h-24">
-        <div class="car-animation" style="bottom:8px;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" width="220" height="80">
-                <defs>
-                    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:#d4eaff;stop-opacity:1"/>
-                        <stop offset="100%" style="stop-color:#1e56a0;stop-opacity:1"/>
-                    </linearGradient>
-                    <linearGradient id="roofGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:#e8f4ff;stop-opacity:1"/>
-                        <stop offset="100%" style="stop-color:#2563a8;stop-opacity:1"/>
-                    </linearGradient>
-                    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#b3d9ff;stop-opacity:0.9"/>
-                        <stop offset="100%" style="stop-color:#5ba4d4;stop-opacity:0.7"/>
-                    </linearGradient>
-                    <radialGradient id="wheelGrad" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" style="stop-color:#555"/>
-                        <stop offset="60%" style="stop-color:#222"/>
-                        <stop offset="100%" style="stop-color:#111"/>
-                    </radialGradient>
-                </defs>
-                <!-- Shadow -->
-                <ellipse cx="110" cy="75" rx="90" ry="5" fill="rgba(0,0,0,0.25)"/>
-                <!-- Main Body -->
-                <path d="M15,55 Q18,42 35,42 L185,42 Q202,42 205,55 L205,65 Q205,70 200,70 L20,70 Q15,70 15,65 Z" fill="url(#bodyGrad)" stroke="#0a3d7a" stroke-width="1.2"/>
-                <!-- Roof/Cabin -->
-                <path d="M55,42 Q65,20 85,18 L140,18 Q158,18 168,42 Z" fill="url(#roofGrad)" stroke="#0a3d7a" stroke-width="1.2"/>
-                <!-- Front Windshield -->
-                <path d="M140,42 Q155,28 163,22 L168,42 Z" fill="url(#glassGrad)" stroke="#5090c0" stroke-width="0.8"/>
-                <!-- Rear Windshield -->
-                <path d="M55,42 Q65,28 72,22 L85,18 Q70,22 62,42 Z" fill="url(#glassGrad)" stroke="#5090c0" stroke-width="0.8"/>
-                <!-- Side Window -->
-                <path d="M90,19 L137,19 L163,42 L62,42 Z" fill="url(#glassGrad)" stroke="#5090c0" stroke-width="0.8" opacity="0.85"/>
-                <!-- Pillar -->
-                <line x1="112" y1="20" x2="110" y2="42" stroke="#0a3d7a" stroke-width="1.5"/>
-                <!-- BMW Kidney Grille -->
-                <rect x="182" y="48" width="16" height="9" rx="3" fill="#111" stroke="#FFD700" stroke-width="1"/>
-                <line x1="190" y1="48" x2="190" y2="57" stroke="#FFD700" stroke-width="1"/>
-                <!-- Headlight -->
-                <ellipse cx="197" cy="47" rx="6" ry="4" fill="#fffbe6" stroke="#FFD700" stroke-width="1"/>
-                <ellipse cx="197" cy="47" rx="3" ry="2" fill="#FFD700" opacity="0.9"/>
-                <!-- Tail Light -->
-                <rect x="14" y="50" width="10" height="8" rx="2" fill="#ff2222" stroke="#cc0000" stroke-width="1"/>
-                <!-- BMW Logo -->
-                <circle cx="175" cy="46" r="7" fill="white" stroke="#0a3d7a" stroke-width="1"/>
-                <path d="M175,39 A7,7 0 0,1 182,46 L175,46 Z" fill="#0062cc"/>
-                <path d="M175,53 A7,7 0 0,1 168,46 L175,46 Z" fill="#0062cc"/>
-                <path d="M168,46 A7,7 0 0,1 175,39 L175,46 Z" fill="white"/>
-                <path d="M182,46 A7,7 0 0,1 175,53 L175,46 Z" fill="white"/>
-                <circle cx="175" cy="46" r="7" fill="none" stroke="#0a3d7a" stroke-width="1.2"/>
-                <!-- Door Line -->
-                <line x1="110" y1="42" x2="110" y2="68" stroke="#1a4d8a" stroke-width="1" opacity="0.6"/>
-                <!-- Door Handles -->
-                <rect x="148" y="53" width="12" height="3" rx="1.5" fill="#FFD700" opacity="0.9"/>
-                <rect x="78" y="53" width="12" height="3" rx="1.5" fill="#FFD700" opacity="0.9"/>
-                <!-- Wheel Arches -->
-                <ellipse cx="165" cy="68" rx="20" ry="8" fill="#0a3d7a" opacity="0.3"/>
-                <ellipse cx="55" cy="68" rx="20" ry="8" fill="#0a3d7a" opacity="0.3"/>
-                <!-- Rear Wheel -->
-                <circle cx="55" cy="68" r="14" fill="url(#wheelGrad)" stroke="#444" stroke-width="1.5"/>
-                <circle cx="55" cy="68" r="9" fill="none" stroke="#888" stroke-width="1"/>
-                <circle cx="55" cy="68" r="4" fill="#bbb"/>
-                <line x1="55" y1="54" x2="55" y2="82" stroke="#777" stroke-width="1.2"/>
-                <line x1="41" y1="68" x2="69" y2="68" stroke="#777" stroke-width="1.2"/>
-                <line x1="45" y1="58" x2="65" y2="78" stroke="#777" stroke-width="1"/>
-                <line x1="65" y1="58" x2="45" y2="78" stroke="#777" stroke-width="1"/>
-                <!-- Front Wheel -->
-                <circle cx="165" cy="68" r="14" fill="url(#wheelGrad)" stroke="#444" stroke-width="1.5"/>
-                <circle cx="165" cy="68" r="9" fill="none" stroke="#888" stroke-width="1"/>
-                <circle cx="165" cy="68" r="4" fill="#bbb"/>
-                <line x1="165" y1="54" x2="165" y2="82" stroke="#777" stroke-width="1.2"/>
-                <line x1="151" y1="68" x2="179" y2="68" stroke="#777" stroke-width="1.2"/>
-                <line x1="155" y1="58" x2="175" y2="78" stroke="#777" stroke-width="1"/>
-                <line x1="175" y1="58" x2="155" y2="78" stroke="#777" stroke-width="1"/>
-                <!-- Bumper Stripe -->
-                <rect x="15" y="66" width="190" height="4" rx="2" fill="#FFD700" opacity="0.25"/>
-            </svg>
-        </div>
-        <div class="absolute bottom-0 w-full h-1 bg-yellow-500/40 rounded-full"></div>
-    </div>
-    <p class="text-white font-bold mt-6 tracking-widest animate-pulse">ROYAL AUTO HUB LOADING...</p>
-</div>
-
-<!-- ========== FLOATING BUTTONS ========== -->
-<div class="fixed bottom-24 right-4 flex flex-col gap-3 z-40">
-    <a href="tel:+919800382378" class="bg-blue-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center border-2 border-white">
-        <i class="fas fa-phone-alt text-2xl"></i>
-    </a>
-    <a href="https://wa.me/919800382378?text=Hi%20Royal%20Auto%20Hub!" target="_blank" class="bg-green-500 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center border-2 border-white float-wa">
-        <i class="fab fa-whatsapp text-3xl"></i>
-    </a>
-</div>
-
-<!-- ========== SIDEBAR OVERLAY ========== -->
-<div id="sidebarOverlay" class="fixed inset-0 bg-black/60 z-[60] hidden backdrop-blur-sm" onclick="window.closeSidebar()"></div>
-
-<!-- ========== SIDEBAR ========== -->
-<div id="sidebar" class="fixed top-0 left-0 h-full w-4/5 max-w-sm bg-white z-[70] shadow-2xl flex flex-col">
-    <div id="sidebarAuthHeader" class="bg-[#2c1338] p-6 flex items-center justify-between text-white cursor-pointer" onclick="window.showLoginModal()">
-        <div class="flex items-center gap-4">
-            <div class="bg-blue-400 p-2 rounded-lg text-2xl flex items-center justify-center w-12 h-12">
-                <i class="fas fa-user-circle"></i>
-            </div>
-            <div id="sidebarLoginText" class="font-bold text-lg tracking-wide">Login/Signup <i class="fas fa-chevron-right text-sm ml-1 opacity-70"></i></div>
-        </div>
-        <button onclick="window.closeSidebar(); event.stopPropagation();" class="text-2xl hover:text-red-400">&times;</button>
-    </div>
-    <div class="flex-1 overflow-y-auto py-2">
-        <div class="px-6 py-4 flex items-center gap-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer" onclick="window.showSection('home');">
-            <i class="fas fa-home text-[#4b286d] text-xl w-6 text-center"></i><span class="text-gray-700 font-semibold">Home</span>
-        </div>
-        <div class="px-6 py-4 flex items-center gap-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer" onclick="window.showSection('buy-car');">
-            <i class="fas fa-car text-[#4b286d] text-xl w-6 text-center"></i><span class="text-gray-700 font-semibold">Buy car</span>
-        </div>
-        <div class="px-6 py-4 flex items-center gap-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer" onclick="window.showSection('sell-car');">
-            <i class="fas fa-hand-holding-usd text-[#4b286d] text-xl w-6 text-center"></i><span class="text-gray-700 font-semibold">Sell your car</span>
-        </div>
-        <div class="px-6 py-4 flex items-center gap-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer" onclick="window.showSection('loans');">
-            <i class="fas fa-percent text-[#4b286d] text-xl w-6 text-center"></i><span class="text-gray-700 font-semibold">Finance Partners</span>
-        </div>
-        <div class="px-6 py-4 flex items-center gap-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer" onclick="window.showSection('exchange');">
-            <i class="fas fa-exchange-alt text-[#4b286d] text-xl w-6 text-center"></i><span class="text-gray-700 font-semibold">Exchange</span>
-        </div>
-        <div class="px-6 py-4 flex items-center gap-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer" onclick="window.showSection('reviews');">
-            <i class="fas fa-star text-[#4b286d] text-xl w-6 text-center"></i><span class="text-gray-700 font-semibold">Customer reviews</span>
-        </div>
-        <div class="px-6 py-4 flex items-center gap-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer" onclick="window.showSection('blog');">
-            <i class="fas fa-blog text-[#4b286d] text-xl w-6 text-center"></i><span class="text-gray-700 font-semibold">Blog</span>
-        </div>
-        <div class="px-6 py-4 flex items-center gap-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer" onclick="window.showSection('about');">
-            <i class="fas fa-address-card text-[#4b286d] text-xl w-6 text-center"></i><span class="text-gray-700 font-semibold">About us</span>
-        </div>
-        <div id="adminMenuBtn" class="px-6 py-4 flex items-center gap-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer hidden" onclick="window.showSection('admin-panel');">
-            <i class="fas fa-user-shield text-red-600 text-xl w-6 text-center"></i><span class="text-red-600 font-bold">Admin Panel</span>
-        </div>
-    </div>
-    <div class="bg-[#f8f4fc] p-5 border-t flex justify-between items-center cursor-pointer" onclick="window.makeCall('+919800382378')">
-        <div class="flex items-center gap-3">
-            <div class="bg-[#4b286d] text-white rounded-full w-10 h-10 flex items-center justify-center text-lg shadow-md">
-                <i class="fas fa-phone-alt"></i>
-            </div>
-            <div>
-                <div class="text-xs text-gray-500 mb-0.5">Need Help?</div>
-                <div class="text-[#4b286d] font-bold">Call us at 9800382378</div>
-            </div>
-        </div>
-        <i class="fas fa-chevron-right text-[#4b286d]"></i>
-    </div>
-</div>
-
-<!-- ========== HEADER ========== -->
-<header class="bg-blue-900 p-6 shadow-xl text-center relative border-b-4 border-yellow-500 rounded-b-2xl">
-    <img src="https://i.ibb.co/9k3bhYjr/1000138115-removebg-preview.png" class="gool-ghumo h-24 mx-auto mb-2 drop-shadow-lg" alt="Logo">
-    <h1 class="text-3xl font-extrabold text-gold tracking-wider uppercase font-serif">ROYAL AUTO HUB</h1>
-    <p class="text-sm italic font-light text-gray-100 tracking-wide mt-1">Quality you can trust</p>
-</header>
-
-<!-- ========== MARQUEE ========== -->
-<div class="bg-yellow-400 text-black font-bold py-2 border-b-2 border-yellow-500 shadow-sm">
-    <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">
         <span onclick="window.showSection('buy-car')" class="cursor-pointer hover:text-blue-800 hover:underline mx-4">🚗 New Arrival: Indigo eCS Available! (View Cars)</span>
         |
         <span onclick="window.showSection('sell-car')" class="cursor-pointer hover:text-blue-800 hover:underline mx-4">💰 Sell Your Old Car at Best Price!</span>
@@ -973,6 +679,27 @@ body.dark-mode {
     <h3 class="font-bold text-lg text-gray-800">Maruti Suzuki Eeco</h3>
     
     <p class="text-xs text-gray-500">2020 • CNG/Petrol • WB Reg</p>
+      
+    <div class="mt-2 text-blue-600 font-medium text-sm"></div>
+    
+  </button>
+  </div>
+  <button onclick="window.openCarModal(
+      'Mahindra bolero', 
+      '2017', 
+      'Diesel', 
+      'WB Reg', 
+      'BS IV', 
+      'Call for Price', 
+      'Well maintained car.', 
+      ['https://i.ibb.co/tTBDr69J/IMG-20260606-WA0005.jpg'],
+      ['Power Windows', 'Airbags', 'ABS', 'Music System',  'Central Locking']
+  )" class="w-full text-left focus:outline-none">
+    
+    <img src="https://i.ibb.co/tTBDr69J/IMG-20260606-WA0005.jpg" alt="IMG 20260606 WA0005" border="0">
+    <h3 class="font-bold text-lg text-gray-800">Mahindra Bolero</h3>
+    
+    <p class="text-xs text-gray-500">2017 • Diesel • WB Reg</p>
     
     <div class="mt-2 text-blue-600 font-medium text-sm"></div>
     
@@ -1279,8 +1006,30 @@ body.dark-mode {
     <footer class="mt-10 p-6 bg-white border-t pb-24 text-center">
         <h2 class="text-lg font-bold text-blue-900">ROYAL AUTO HUB</h2>
         <div class="mt-4 flex justify-center space-x-6">
-            <a href="https://wa.me/919800382378" class="text-green-500 text-3xl"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/919800382378" target="_blank" class="text-green-500 text-3xl"><i class="fab fa-whatsapp"></i></a>
+            <!-- নতুন ফেসবুক লিঙ্ক যুক্ত করা হলো -->
+            <a href="https://www.facebook.com/share/1Jfqqfg1xK/" target="_blank" class="text-blue-600 text-3xl"><i class="fab fa-facebook"></i></a>
             <a href="tel:+919800382378" class="text-blue-600 text-3xl"><i class="fas fa-phone-square"></i></a>
+        </div>
+    </footer>
+
+    <!-- নীল রঙের ফ্লোটিং ফুটার ব্যানার (মোবাইল ভিউ-এর ফেসবুক আইকন সহ) -->
+    <footer class="bg-blue-900 text-white mt-12 py-8 rounded-t-3xl shadow-2xl border-t-4 border-yellow-500">
+        <div class="max-w-md mx-auto px-6 text-center relative">
+            <h2 class="text-3xl font-black mb-1 text-white">Royal Auto Hub</h2>
+            <p class="text-gray-300 text-sm mb-6 font-medium">Jhargram's Premium Used Car Showroom</p>
+            
+            <div class="flex justify-center gap-6 mb-4">
+                <a href="https://wa.me/919800382378" target="_blank" class="bg-green-500 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center border border-white/20 active:scale-95 transition-transform">
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                </a>
+                <a href="https://www.facebook.com/share/1Jfqqfg1xK/" target="_blank" class="bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center border border-white/20 active:scale-95 transition-transform">
+                    <i class="fab fa-facebook-f text-2xl"></i>
+                </a>
+                <a href="tel:+919800382378" class="bg-blue-500 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center border border-white/20 active:scale-95 transition-transform">
+                    <i class="fas fa-phone-alt text-xl"></i>
+                </a>
+            </div>
         </div>
     </footer>
 
